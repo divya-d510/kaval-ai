@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+streamlit
+networkx
+plotly
+anthropic
+google-genai
+zcatalyst-sdk
+python-dotenv
+pandas
+httpx

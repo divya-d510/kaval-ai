@@ -1,0 +1,121 @@
+suspect_id,name,age,gender,known_address,prior_cases
+SUS-00001,Prakash Kumar,35,Male,Malleshwaram,2
+SUS-00002,Basavaraj Gowda,55,Male,MG Road,0
+SUS-00003,Lokesh Shastri,56,Male,Devaraja Mohalla,2
+SUS-00004,Basavaraj Hegde,32,Male,Kuvempunagar,3
+SUS-00005,Ravi Reddy,45,Male,Malleshwaram,0
+SUS-00006,Deepa Gowda,23,Male,Kadri,3
+SUS-00007,Raghavendra Rao,20,Male,Dharwad Market,0
+SUS-00008,Sunita Gowda,53,Male,Kadri,1
+SUS-00009,Manjunath Kumar,60,Male,Hebbal Industrial Area,8
+SUS-00010,Lokesh Gowda,42,Male,Kadri,0
+SUS-00011,Lakshmi Shetty,60,Male,Jayanagar 4th Block,1
+SUS-00012,Santosh Shastri,33,Male,Panambur,0
+SUS-00013,Basavaraj Shetty,38,Female,Indiranagar,0
+SUS-00014,Suresh Naik,43,Male,Devaraja Mohalla,5
+SUS-00015,Shivakumar Swamy,38,Male,Gokul Road,0
+SUS-00016,Anand Reddy,34,Male,Dharwad Market,1
+SUS-00017,Shivakumar Hegde,55,Male,Lashkar Mohalla,8
+SUS-00018,Kiran Shastri,49,Male,Indiranagar,3
+SUS-00019,Kiran Murthy,28,Male,Surathkal,1
+SUS-00020,Sunita Hegde,56,Female,Old Hubballi,0
+SUS-00021,Basavaraj Kumar,25,Male,Dharwad Market,2
+SUS-00022,Deepa Gowda,36,Male,Vidyanagar,0
+SUS-00023,Harish Shastri,29,Male,Whitefield,3
+SUS-00024,Nagesh Murthy,50,Male,Malleshwaram,0
+SUS-00025,Santosh Shastri,51,Female,Hampankatta,1
+SUS-00026,Prakash Naik,37,Male,Lashkar Mohalla,3
+SUS-00027,Manjunath Gowda,49,Female,Dharwad Market,2
+SUS-00028,Kiran Murthy,48,Female,Koramangala,0
+SUS-00029,Raghavendra Hegde,31,Female,Devaraja Mohalla,2
+SUS-00030,Sunita Murthy,59,Male,Old Hubballi,1
+SUS-00031,Lokesh Shetty,22,Male,Dharwad Market,0
+SUS-00032,Lokesh Kumar,22,Male,Indiranagar,0
+SUS-00033,Suresh Naik,22,Male,Kuvempunagar,2
+SUS-00034,Venkatesh Shastri,26,Male,Gokul Road,0
+SUS-00035,Girish Hegde,30,Male,Surathkal,0
+SUS-00036,Rekha Patil,21,Male,Whitefield,0
+SUS-00037,Deepa Gowda,33,Male,Dharwad Market,1
+SUS-00038,Rekha Reddy,35,Male,Jayanagar 4th Block,1
+SUS-00039,Basavaraj Gowda,21,Male,Dharwad Market,3
+SUS-00040,Manjunath Shetty,28,Male,Gokul Road,0
+SUS-00041,Sunita Kumar,28,Male,Panambur,0
+SUS-00042,Anand Rao,45,Male,Dharwad Market,2
+SUS-00043,Girish Reddy,30,Male,Indiranagar,1
+SUS-00044,Basavaraj Kumar,38,Male,Gokul Road,1
+SUS-00045,Mahesh Reddy,21,Female,Jayanagar 4th Block,3
+SUS-00046,Manjunath Acharya,22,Male,Lashkar Mohalla,1
+SUS-00047,Shivakumar Shetty,55,Male,Jayanagar 4th Block,1
+SUS-00048,Shivakumar Acharya,51,Male,Kuvempunagar,0
+SUS-00049,Deepa Shetty,34,Male,Hebbal Industrial Area,1
+SUS-00050,Manjunath Kumar,47,Male,Whitefield,0
+SUS-00051,Venkatesh Shastri,34,Male,Kadri,3
+SUS-00052,Lokesh Naik,36,Male,Dharwad Market,2
+SUS-00053,Raghavendra Murthy,51,Male,Dharwad Market,0
+SUS-00054,Prakash Reddy,34,Male,Whitefield,2
+SUS-00055,Kiran Rao,36,Male,Hampankatta,0
+SUS-00056,Harish Shastri,49,Male,Indiranagar,0
+SUS-00057,Rekha Rao,20,Male,Malleshwaram,1
+SUS-00058,Harish Reddy,46,Male,Surathkal,1
+SUS-00059,Prakash Gowda,27,Male,Kadri,1
+SUS-00060,Kiran Hegde,26,Male,Kadri,3
+SUS-00061,Suresh Naik,31,Male,Whitefield,0
+SUS-00062,Basavaraj Hegde,57,Male,Lashkar Mohalla,3
+SUS-00063,Santosh Hegde,19,Male,Hampankatta,2
+SUS-00064,Rekha Murthy,33,Male,Whitefield,0
+SUS-00065,Suresh Patil,32,Male,Vidyanagar,0
+SUS-00066,Lokesh Shetty,19,Male,Panambur,0
+SUS-00067,Manjunath Rao,40,Male,Panambur,2
+SUS-00068,Basavaraj Naik,19,Male,Kuvempunagar,0
+SUS-00069,Harish Kumar,24,Male,Kadri,2
+SUS-00070,Deepa Hegde,56,Female,Whitefield,0
+SUS-00071,Shivakumar Shetty,34,Male,Surathkal,0
+SUS-00072,Basavaraj Murthy,60,Male,Surathkal,0
+SUS-00073,Deepa Acharya,38,Male,Whitefield,2
+SUS-00074,Nagesh Shastri,37,Male,Hampankatta,1
+SUS-00075,Nagesh Shastri,26,Male,Panambur,2
+SUS-00076,Santosh Acharya,54,Male,Dharwad Market,3
+SUS-00077,Nagesh Rao,31,Male,Hampankatta,1
+SUS-00078,Anand Murthy,31,Male,Koramangala,2
+SUS-00079,Nagesh Shastri,60,Male,Hampankatta,0
+SUS-00080,Lokesh Murthy,37,Male,Devaraja Mohalla,0
+SUS-00081,Suresh Shetty,48,Male,Jayanagar 4th Block,1
+SUS-00082,Shivakumar Shetty,42,Male,Lashkar Mohalla,0
+SUS-00083,Ravi Gowda,45,Male,Old Hubballi,1
+SUS-00084,Basavaraj Shetty,25,Male,Vidyanagar,2
+SUS-00085,Basavaraj Acharya,38,Female,Vidyanagar,1
+SUS-00086,Mahesh Hegde,53,Male,Koramangala,2
+SUS-00087,Girish Patil,34,Male,Kuvempunagar,2
+SUS-00088,Mahesh Patil,58,Male,Vidyanagar,0
+SUS-00089,Nagesh Shetty,35,Male,Dharwad Market,0
+SUS-00090,Kiran Shetty,42,Male,Devaraja Mohalla,0
+SUS-00091,Rekha Naik,52,Male,Indiranagar,0
+SUS-00092,Rekha Hegde,55,Female,MG Road,3
+SUS-00093,Shivakumar Hegde,48,Male,Kadri,0
+SUS-00094,Sunita Hegde,52,Male,Dharwad Market,2
+SUS-00095,Lokesh Patil,32,Male,Gokul Road,0
+SUS-00096,Deepa Murthy,43,Male,Vidyanagar,5
+SUS-00097,Raghavendra Shastri,19,Female,MG Road,0
+SUS-00098,Rekha Reddy,47,Male,Kuvempunagar,0
+SUS-00099,Venkatesh Patil,38,Male,Panambur,0
+SUS-00100,Rekha Rao,23,Male,Dharwad Market,0
+SUS-00101,Lakshmi Shetty,59,Male,Indiranagar,2
+SUS-00102,Lokesh Shetty,19,Male,Lashkar Mohalla,0
+SUS-00103,Prakash Acharya,31,Male,Kuvempunagar,2
+SUS-00104,Santosh Acharya,56,Female,Whitefield,2
+SUS-00105,Santosh Rao,24,Male,Hebbal Industrial Area,1
+SUS-00106,Sunita Hegde,30,Male,Lashkar Mohalla,0
+SUS-00107,Nagesh Murthy,56,Female,Indiranagar,0
+SUS-00108,Rekha Murthy,41,Male,Hampankatta,0
+SUS-00109,Rekha Patil,24,Male,Kadri,1
+SUS-00110,Anand Swamy,27,Male,Old Hubballi,5
+SUS-00111,Harish Acharya,52,Male,Vidyanagar,1
+SUS-00112,Shivakumar Rao,38,Female,Jayanagar 4th Block,0
+SUS-00113,Anand Shetty,47,Male,Panambur,0
+SUS-00114,Girish Naik,29,Male,Kadri,2
+SUS-00115,Deepa Rao,56,Male,Kuvempunagar,1
+SUS-00116,Mahesh Shetty,23,Male,Surathkal,1
+SUS-00117,Lokesh Swamy,48,Male,Gokul Road,1
+SUS-00118,Ravi Gowda,36,Male,Lashkar Mohalla,0
+SUS-00119,Shivakumar Naik,48,Male,Kadri,1
+SUS-00120,Basavaraj Naik,40,Male,Kuvempunagar,0

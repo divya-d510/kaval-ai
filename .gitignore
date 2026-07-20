@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.catalystrc
+catalyst.json
+node_modules/
+.DS_Store
+deploy/

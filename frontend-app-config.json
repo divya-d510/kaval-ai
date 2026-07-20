@@ -1,0 +1,9 @@
+{
+  "command": "python -m streamlit run frontend/streamlit_app.py --server.port $X_ZOHO_CATALYST_LISTEN_PORT --server.address 0.0.0.0 --server.headless true",
+  "build_path": ".",
+  "stack": "python_3_10",
+  "env_variables": {
+    "FASTAPI_INTERNAL_URL": "https://YOUR-BACKEND-APPSAIL-URL"
+  },
+  "memory": 512
+}
