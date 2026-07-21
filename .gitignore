@@ -7,3 +7,5 @@ catalyst.json
 node_modules/
 .DS_Store
 deploy/
+*.pptx
+~$*.pptx
