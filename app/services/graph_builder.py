@@ -20,14 +20,15 @@ def build_graph() -> nx.Graph:
         G.add_node(
             s["suspect_id"],
             name=s["name"],
-            prior_cases=s["prior_cases"],
+            prior_cases=int(s["prior_cases"]) if s["prior_cases"] not in (None, "") else 0,
             address=s["known_address"],
         )
 
     for a in store.query("suspect_associations", limit=5000):
         G.add_edge(
             a["suspect_id_a"], a["suspect_id_b"],
-            relation=a["relation_type"], weight=a["confidence"],
+            relation=a["relation_type"],
+            weight=float(a["confidence"]) if a["confidence"] not in (None, "") else 0.5,
         )
 
     fir_accused = defaultdict(list)
