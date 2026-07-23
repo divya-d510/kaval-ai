@@ -1,121 +1,121 @@
-suspect_id,name,age,gender,known_address,prior_cases
-SUS-00001,Prakash Kumar,35,Male,Malleshwaram,2
-SUS-00002,Basavaraj Gowda,55,Male,MG Road,0
-SUS-00003,Lokesh Shastri,56,Male,Devaraja Mohalla,2
-SUS-00004,Basavaraj Hegde,32,Male,Kuvempunagar,3
-SUS-00005,Ravi Reddy,45,Male,Malleshwaram,0
-SUS-00006,Deepa Gowda,23,Male,Kadri,3
-SUS-00007,Raghavendra Rao,20,Male,Dharwad Market,0
-SUS-00008,Sunita Gowda,53,Male,Kadri,1
-SUS-00009,Manjunath Kumar,60,Male,Hebbal Industrial Area,8
-SUS-00010,Lokesh Gowda,42,Male,Kadri,0
-SUS-00011,Lakshmi Shetty,60,Male,Jayanagar 4th Block,1
-SUS-00012,Santosh Shastri,33,Male,Panambur,0
-SUS-00013,Basavaraj Shetty,38,Female,Indiranagar,0
-SUS-00014,Suresh Naik,43,Male,Devaraja Mohalla,5
-SUS-00015,Shivakumar Swamy,38,Male,Gokul Road,0
-SUS-00016,Anand Reddy,34,Male,Dharwad Market,1
-SUS-00017,Shivakumar Hegde,55,Male,Lashkar Mohalla,8
-SUS-00018,Kiran Shastri,49,Male,Indiranagar,3
-SUS-00019,Kiran Murthy,28,Male,Surathkal,1
-SUS-00020,Sunita Hegde,56,Female,Old Hubballi,0
-SUS-00021,Basavaraj Kumar,25,Male,Dharwad Market,2
-SUS-00022,Deepa Gowda,36,Male,Vidyanagar,0
-SUS-00023,Harish Shastri,29,Male,Whitefield,3
-SUS-00024,Nagesh Murthy,50,Male,Malleshwaram,0
-SUS-00025,Santosh Shastri,51,Female,Hampankatta,1
-SUS-00026,Prakash Naik,37,Male,Lashkar Mohalla,3
-SUS-00027,Manjunath Gowda,49,Female,Dharwad Market,2
-SUS-00028,Kiran Murthy,48,Female,Koramangala,0
-SUS-00029,Raghavendra Hegde,31,Female,Devaraja Mohalla,2
-SUS-00030,Sunita Murthy,59,Male,Old Hubballi,1
-SUS-00031,Lokesh Shetty,22,Male,Dharwad Market,0
-SUS-00032,Lokesh Kumar,22,Male,Indiranagar,0
-SUS-00033,Suresh Naik,22,Male,Kuvempunagar,2
-SUS-00034,Venkatesh Shastri,26,Male,Gokul Road,0
-SUS-00035,Girish Hegde,30,Male,Surathkal,0
-SUS-00036,Rekha Patil,21,Male,Whitefield,0
-SUS-00037,Deepa Gowda,33,Male,Dharwad Market,1
-SUS-00038,Rekha Reddy,35,Male,Jayanagar 4th Block,1
-SUS-00039,Basavaraj Gowda,21,Male,Dharwad Market,3
-SUS-00040,Manjunath Shetty,28,Male,Gokul Road,0
-SUS-00041,Sunita Kumar,28,Male,Panambur,0
-SUS-00042,Anand Rao,45,Male,Dharwad Market,2
-SUS-00043,Girish Reddy,30,Male,Indiranagar,1
-SUS-00044,Basavaraj Kumar,38,Male,Gokul Road,1
-SUS-00045,Mahesh Reddy,21,Female,Jayanagar 4th Block,3
-SUS-00046,Manjunath Acharya,22,Male,Lashkar Mohalla,1
-SUS-00047,Shivakumar Shetty,55,Male,Jayanagar 4th Block,1
-SUS-00048,Shivakumar Acharya,51,Male,Kuvempunagar,0
-SUS-00049,Deepa Shetty,34,Male,Hebbal Industrial Area,1
-SUS-00050,Manjunath Kumar,47,Male,Whitefield,0
-SUS-00051,Venkatesh Shastri,34,Male,Kadri,3
-SUS-00052,Lokesh Naik,36,Male,Dharwad Market,2
-SUS-00053,Raghavendra Murthy,51,Male,Dharwad Market,0
-SUS-00054,Prakash Reddy,34,Male,Whitefield,2
-SUS-00055,Kiran Rao,36,Male,Hampankatta,0
-SUS-00056,Harish Shastri,49,Male,Indiranagar,0
-SUS-00057,Rekha Rao,20,Male,Malleshwaram,1
-SUS-00058,Harish Reddy,46,Male,Surathkal,1
-SUS-00059,Prakash Gowda,27,Male,Kadri,1
-SUS-00060,Kiran Hegde,26,Male,Kadri,3
-SUS-00061,Suresh Naik,31,Male,Whitefield,0
-SUS-00062,Basavaraj Hegde,57,Male,Lashkar Mohalla,3
-SUS-00063,Santosh Hegde,19,Male,Hampankatta,2
-SUS-00064,Rekha Murthy,33,Male,Whitefield,0
-SUS-00065,Suresh Patil,32,Male,Vidyanagar,0
-SUS-00066,Lokesh Shetty,19,Male,Panambur,0
-SUS-00067,Manjunath Rao,40,Male,Panambur,2
-SUS-00068,Basavaraj Naik,19,Male,Kuvempunagar,0
-SUS-00069,Harish Kumar,24,Male,Kadri,2
-SUS-00070,Deepa Hegde,56,Female,Whitefield,0
-SUS-00071,Shivakumar Shetty,34,Male,Surathkal,0
-SUS-00072,Basavaraj Murthy,60,Male,Surathkal,0
-SUS-00073,Deepa Acharya,38,Male,Whitefield,2
-SUS-00074,Nagesh Shastri,37,Male,Hampankatta,1
-SUS-00075,Nagesh Shastri,26,Male,Panambur,2
-SUS-00076,Santosh Acharya,54,Male,Dharwad Market,3
-SUS-00077,Nagesh Rao,31,Male,Hampankatta,1
-SUS-00078,Anand Murthy,31,Male,Koramangala,2
-SUS-00079,Nagesh Shastri,60,Male,Hampankatta,0
-SUS-00080,Lokesh Murthy,37,Male,Devaraja Mohalla,0
-SUS-00081,Suresh Shetty,48,Male,Jayanagar 4th Block,1
-SUS-00082,Shivakumar Shetty,42,Male,Lashkar Mohalla,0
-SUS-00083,Ravi Gowda,45,Male,Old Hubballi,1
-SUS-00084,Basavaraj Shetty,25,Male,Vidyanagar,2
-SUS-00085,Basavaraj Acharya,38,Female,Vidyanagar,1
-SUS-00086,Mahesh Hegde,53,Male,Koramangala,2
-SUS-00087,Girish Patil,34,Male,Kuvempunagar,2
-SUS-00088,Mahesh Patil,58,Male,Vidyanagar,0
-SUS-00089,Nagesh Shetty,35,Male,Dharwad Market,0
-SUS-00090,Kiran Shetty,42,Male,Devaraja Mohalla,0
-SUS-00091,Rekha Naik,52,Male,Indiranagar,0
-SUS-00092,Rekha Hegde,55,Female,MG Road,3
-SUS-00093,Shivakumar Hegde,48,Male,Kadri,0
-SUS-00094,Sunita Hegde,52,Male,Dharwad Market,2
-SUS-00095,Lokesh Patil,32,Male,Gokul Road,0
-SUS-00096,Deepa Murthy,43,Male,Vidyanagar,5
-SUS-00097,Raghavendra Shastri,19,Female,MG Road,0
-SUS-00098,Rekha Reddy,47,Male,Kuvempunagar,0
-SUS-00099,Venkatesh Patil,38,Male,Panambur,0
-SUS-00100,Rekha Rao,23,Male,Dharwad Market,0
-SUS-00101,Lakshmi Shetty,59,Male,Indiranagar,2
-SUS-00102,Lokesh Shetty,19,Male,Lashkar Mohalla,0
-SUS-00103,Prakash Acharya,31,Male,Kuvempunagar,2
-SUS-00104,Santosh Acharya,56,Female,Whitefield,2
-SUS-00105,Santosh Rao,24,Male,Hebbal Industrial Area,1
-SUS-00106,Sunita Hegde,30,Male,Lashkar Mohalla,0
-SUS-00107,Nagesh Murthy,56,Female,Indiranagar,0
-SUS-00108,Rekha Murthy,41,Male,Hampankatta,0
-SUS-00109,Rekha Patil,24,Male,Kadri,1
-SUS-00110,Anand Swamy,27,Male,Old Hubballi,5
-SUS-00111,Harish Acharya,52,Male,Vidyanagar,1
-SUS-00112,Shivakumar Rao,38,Female,Jayanagar 4th Block,0
-SUS-00113,Anand Shetty,47,Male,Panambur,0
-SUS-00114,Girish Naik,29,Male,Kadri,2
-SUS-00115,Deepa Rao,56,Male,Kuvempunagar,1
-SUS-00116,Mahesh Shetty,23,Male,Surathkal,1
-SUS-00117,Lokesh Swamy,48,Male,Gokul Road,1
-SUS-00118,Ravi Gowda,36,Male,Lashkar Mohalla,0
-SUS-00119,Shivakumar Naik,48,Male,Kadri,1
-SUS-00120,Basavaraj Naik,40,Male,Kuvempunagar,0
+suspect_id,name,age,gender,known_address,prior_cases,socio_economic_band,education_level,modus_operandi
+SUS-00001,Ravi Swamy,35,Male,Malleshwaram,1,Middle,Secondary,Cyber-enabled
+SUS-00002,Rekha Kumar,19,Male,Lashkar Mohalla,0,Middle,Illiterate,Opportunistic - unarmed
+SUS-00003,Basavaraj Hegde,32,Male,Kuvempunagar,1,Middle,Illiterate,Cyber-enabled
+SUS-00004,Deepa Rao,27,Male,Hampankatta,2,Low,Secondary,Organized - armed
+SUS-00005,Harish Kumar,47,Male,Panambur,0,Low,Primary,Cyber-enabled
+SUS-00006,Lakshmi Acharya,30,Male,Indiranagar,3,Middle,Graduate,Repeat pattern - same MO
+SUS-00007,Prakash Hegde,35,Male,Kadri,3,Low,Secondary,Cyber-enabled
+SUS-00008,Manjunath Acharya,58,Male,Lashkar Mohalla,2,Low,Secondary,Repeat pattern - same MO
+SUS-00009,Basavaraj Shetty,38,Female,Indiranagar,1,Low,Illiterate,Opportunistic - unarmed
+SUS-00010,Venkatesh Acharya,38,Male,Gokul Road,0,Low,Graduate,Organized - armed
+SUS-00011,Lokesh Swamy,53,Male,Surathkal,0,High,Secondary,Opportunistic - unarmed
+SUS-00012,Mahesh Patil,23,Male,Whitefield,8,Low,Primary,Repeat pattern - same MO
+SUS-00013,Sunita Hegde,56,Female,Old Hubballi,1,Low,Secondary,Repeat pattern - same MO
+SUS-00014,Prakash Murthy,52,Male,Hampankatta,2,Low,Secondary,Organized - armed
+SUS-00015,Harish Shastri,29,Male,Whitefield,5,High,Primary,Cyber-enabled
+SUS-00016,Kiran Naik,28,Male,Old Hubballi,1,High,Secondary,Organized - armed
+SUS-00017,Lakshmi Rao,33,Male,Jayanagar 4th Block,0,Low,Secondary,Opportunistic - unarmed
+SUS-00018,Kiran Reddy,60,Male,Dharwad Market,2,Low,Secondary,Cyber-enabled
+SUS-00019,Basavaraj Swamy,30,Male,Panambur,5,High,Secondary,Organized - armed
+SUS-00020,Prakash Shetty,32,Male,MG Road,1,Middle,Primary,Opportunistic - unarmed
+SUS-00021,Suresh Shetty,22,Female,Hampankatta,0,Low,Primary,Cyber-enabled
+SUS-00022,Kiran Swamy,54,Male,Lashkar Mohalla,0,Middle,Graduate,Opportunistic - unarmed
+SUS-00023,Rekha Naik,45,Male,Indiranagar,0,Middle,Postgraduate,Opportunistic - unarmed
+SUS-00024,Deepa Gowda,33,Male,Dharwad Market,1,Low,Secondary,Opportunistic - unarmed
+SUS-00025,Manjunath Patil,53,Male,Dharwad Market,0,Middle,Postgraduate,Repeat pattern - same MO
+SUS-00026,Santosh Hegde,49,Male,Panambur,3,High,Primary,Opportunistic - unarmed
+SUS-00027,Anand Rao,45,Male,Dharwad Market,0,Middle,Secondary,Opportunistic - unarmed
+SUS-00028,Suresh Acharya,52,Male,Hampankatta,0,Low,Secondary,Organized - armed
+SUS-00029,Santosh Kumar,50,Male,Koramangala,3,Low,Illiterate,Repeat pattern - same MO
+SUS-00030,Shivakumar Shetty,55,Male,Jayanagar 4th Block,1,Low,Secondary,Organized - armed
+SUS-00031,Venkatesh Murthy,38,Male,Panambur,5,Low,Secondary,Organized - armed
+SUS-00032,Manjunath Kumar,47,Male,Whitefield,5,Low,Primary,Organized - armed
+SUS-00033,Manjunath Shetty,41,Male,Vidyanagar,5,Middle,Graduate,Cyber-enabled
+SUS-00034,Mahesh Kumar,60,Female,Hebbal Industrial Area,8,High,Primary,Repeat pattern - same MO
+SUS-00035,Prakash Swamy,53,Male,Hebbal Industrial Area,0,Middle,Graduate,Opportunistic - unarmed
+SUS-00036,Harish Shastri,49,Male,Indiranagar,1,Low,Secondary,Opportunistic - unarmed
+SUS-00037,Kiran Murthy,34,Male,Vidyanagar,0,Middle,Secondary,Opportunistic - unarmed
+SUS-00038,Kiran Shastri,20,Female,Dharwad Market,0,Low,Primary,Opportunistic - unarmed
+SUS-00039,Suresh Naik,31,Male,Whitefield,3,Low,Secondary,Repeat pattern - same MO
+SUS-00040,Kiran Shetty,28,Female,Koramangala,8,High,Illiterate,Repeat pattern - same MO
+SUS-00041,Rekha Murthy,33,Male,Whitefield,0,Low,Illiterate,Organized - armed
+SUS-00042,Anand Naik,37,Female,Lashkar Mohalla,0,Low,Secondary,Opportunistic - unarmed
+SUS-00043,Manjunath Rao,40,Male,Panambur,0,Middle,Graduate,Opportunistic - unarmed
+SUS-00044,Harish Reddy,55,Female,Kuvempunagar,0,Low,Secondary,Opportunistic - unarmed
+SUS-00045,Rekha Acharya,50,Male,Devaraja Mohalla,2,Low,Graduate,Opportunistic - unarmed
+SUS-00046,Basavaraj Murthy,60,Male,Surathkal,5,Low,Secondary,Organized - armed
+SUS-00047,Prakash Swamy,37,Male,Surathkal,0,Low,Secondary,Organized - armed
+SUS-00048,Sunita Murthy,29,Male,Hebbal Industrial Area,0,Low,Graduate,Opportunistic - unarmed
+SUS-00049,Shivakumar Acharya,59,Male,Vidyanagar,0,Low,Primary,Organized - armed
+SUS-00050,Santosh Murthy,23,Male,Hampankatta,5,Low,Postgraduate,Organized - armed
+SUS-00051,Venkatesh Reddy,19,Male,Gokul Road,0,Middle,Graduate,Organized - armed
+SUS-00052,Shivakumar Shetty,42,Male,Lashkar Mohalla,3,Low,Secondary,Repeat pattern - same MO
+SUS-00053,Prakash Hegde,32,Male,Old Hubballi,3,Middle,Secondary,Repeat pattern - same MO
+SUS-00054,Kiran Patil,60,Male,Dharwad Market,0,Middle,Postgraduate,Cyber-enabled
+SUS-00055,Mahesh Hegde,53,Male,Koramangala,1,Middle,Secondary,Opportunistic - unarmed
+SUS-00056,Harish Shastri,49,Male,Kuvempunagar,0,Low,Graduate,Opportunistic - unarmed
+SUS-00057,Basavaraj Gowda,26,Male,Panambur,0,Middle,Graduate,Opportunistic - unarmed
+SUS-00058,Basavaraj Patil,44,Male,Surathkal,1,Low,Graduate,Repeat pattern - same MO
+SUS-00059,Shivakumar Hegde,48,Male,Kadri,0,Low,Secondary,Cyber-enabled
+SUS-00060,Basavaraj Swamy,52,Male,Lashkar Mohalla,3,Middle,Primary,Organized - armed
+SUS-00061,Sunita Swamy,28,Female,Malleshwaram,0,High,Secondary,Repeat pattern - same MO
+SUS-00062,Ravi Gowda,59,Male,Vidyanagar,1,Low,Primary,Opportunistic - unarmed
+SUS-00063,Deepa Hegde,35,Male,Surathkal,1,Low,Illiterate,Opportunistic - unarmed
+SUS-00064,Lakshmi Shetty,59,Male,Indiranagar,1,Middle,Graduate,Opportunistic - unarmed
+SUS-00065,Kiran Shetty,26,Male,Whitefield,0,Middle,Primary,Cyber-enabled
+SUS-00066,Santosh Acharya,56,Female,Whitefield,2,Middle,Primary,Organized - armed
+SUS-00067,Nagesh Acharya,42,Male,Devaraja Mohalla,1,Low,Secondary,Cyber-enabled
+SUS-00068,Nagesh Murthy,56,Female,Indiranagar,0,Low,Secondary,Opportunistic - unarmed
+SUS-00069,Deepa Kumar,44,Female,Whitefield,1,Low,Secondary,Cyber-enabled
+SUS-00070,Kiran Hegde,29,Male,Kuvempunagar,1,Middle,Graduate,Cyber-enabled
+SUS-00071,Shivakumar Rao,38,Female,Jayanagar 4th Block,1,Low,Secondary,Cyber-enabled
+SUS-00072,Sunita Naik,19,Male,Hampankatta,1,Low,Primary,Cyber-enabled
+SUS-00073,Raghavendra Swamy,35,Male,Old Hubballi,0,High,Illiterate,Cyber-enabled
+SUS-00074,Lokesh Swamy,48,Male,Gokul Road,1,Low,Illiterate,Opportunistic - unarmed
+SUS-00075,Lokesh Rao,60,Male,Gokul Road,1,Middle,Primary,Repeat pattern - same MO
+SUS-00076,Lakshmi Swamy,47,Male,Kuvempunagar,1,Low,Graduate,Opportunistic - unarmed
+SUS-00077,Santosh Shetty,31,Male,Kuvempunagar,2,Middle,Postgraduate,Organized - armed
+SUS-00078,Prakash Shetty,36,Male,Koramangala,0,Low,Graduate,Opportunistic - unarmed
+SUS-00079,Suresh Shastri,36,Male,Malleshwaram,0,Middle,Graduate,Opportunistic - unarmed
+SUS-00080,Nagesh Patil,48,Male,Koramangala,0,High,Primary,Cyber-enabled
+SUS-00081,Manjunath Hegde,49,Male,Indiranagar,0,Low,Graduate,Repeat pattern - same MO
+SUS-00082,Lokesh Gowda,53,Male,Lashkar Mohalla,0,Middle,Secondary,Repeat pattern - same MO
+SUS-00083,Shivakumar Hegde,37,Male,Indiranagar,0,Middle,Graduate,Repeat pattern - same MO
+SUS-00084,Venkatesh Rao,60,Male,Lashkar Mohalla,0,Low,Illiterate,Opportunistic - unarmed
+SUS-00085,Raghavendra Patil,36,Male,Hebbal Industrial Area,1,Middle,Graduate,Organized - armed
+SUS-00086,Harish Murthy,55,Male,Devaraja Mohalla,2,Low,Secondary,Cyber-enabled
+SUS-00087,Kiran Gowda,21,Male,Hebbal Industrial Area,5,Middle,Graduate,Repeat pattern - same MO
+SUS-00088,Anand Swamy,37,Male,Kuvempunagar,1,Middle,Secondary,Opportunistic - unarmed
+SUS-00089,Rekha Swamy,38,Male,MG Road,0,Low,Postgraduate,Cyber-enabled
+SUS-00090,Ravi Murthy,35,Male,Koramangala,1,Middle,Secondary,Repeat pattern - same MO
+SUS-00091,Shivakumar Hegde,58,Female,Jayanagar 4th Block,0,Middle,Secondary,Opportunistic - unarmed
+SUS-00092,Santosh Naik,44,Male,Hebbal Industrial Area,0,Middle,Secondary,Cyber-enabled
+SUS-00093,Manjunath Naik,34,Male,Panambur,0,High,Graduate,Opportunistic - unarmed
+SUS-00094,Anand Hegde,21,Male,Kadri,3,Middle,Secondary,Organized - armed
+SUS-00095,Harish Shastri,26,Female,Vidyanagar,0,High,Secondary,Opportunistic - unarmed
+SUS-00096,Lokesh Swamy,28,Male,MG Road,1,Middle,Illiterate,Repeat pattern - same MO
+SUS-00097,Anand Gowda,59,Female,Gokul Road,5,High,Primary,Repeat pattern - same MO
+SUS-00098,Girish Patil,33,Male,Malleshwaram,1,Low,Graduate,Organized - armed
+SUS-00099,Manjunath Rao,44,Male,Old Hubballi,3,Low,Illiterate,Cyber-enabled
+SUS-00100,Shivakumar Murthy,49,Female,Vidyanagar,3,Middle,Primary,Cyber-enabled
+SUS-00101,Anand Naik,30,Female,Lashkar Mohalla,1,Middle,Primary,Cyber-enabled
+SUS-00102,Girish Swamy,42,Male,Malleshwaram,0,Middle,Illiterate,Organized - armed
+SUS-00103,Prakash Patil,24,Male,Vidyanagar,1,Low,Primary,Cyber-enabled
+SUS-00104,Manjunath Patil,34,Male,Panambur,5,Middle,Graduate,Repeat pattern - same MO
+SUS-00105,Sunita Naik,58,Male,Gokul Road,3,High,Illiterate,Opportunistic - unarmed
+SUS-00106,Nagesh Shetty,23,Male,Whitefield,1,Middle,Graduate,Opportunistic - unarmed
+SUS-00107,Nagesh Kumar,20,Male,Indiranagar,0,Low,Secondary,Opportunistic - unarmed
+SUS-00108,Shivakumar Murthy,29,Male,Jayanagar 4th Block,1,Middle,Secondary,Cyber-enabled
+SUS-00109,Shivakumar Reddy,32,Male,Kuvempunagar,1,Middle,Secondary,Cyber-enabled
+SUS-00110,Nagesh Murthy,52,Male,Vidyanagar,1,High,Postgraduate,Opportunistic - unarmed
+SUS-00111,Harish Patil,37,Male,Panambur,5,High,Primary,Organized - armed
+SUS-00112,Nagesh Swamy,36,Male,Panambur,0,Low,Secondary,Cyber-enabled
+SUS-00113,Suresh Acharya,49,Female,Hebbal Industrial Area,2,Middle,Primary,Repeat pattern - same MO
+SUS-00114,Venkatesh Acharya,34,Male,Malleshwaram,0,Middle,Graduate,Cyber-enabled
+SUS-00115,Anand Kumar,55,Male,Malleshwaram,0,Low,Primary,Cyber-enabled
+SUS-00116,Kiran Shastri,41,Male,Kuvempunagar,0,Middle,Primary,Cyber-enabled
+SUS-00117,Nagesh Swamy,39,Female,Vidyanagar,1,High,Primary,Repeat pattern - same MO
+SUS-00118,Sunita Shastri,41,Male,Panambur,3,Low,Secondary,Organized - armed
+SUS-00119,Harish Acharya,42,Female,Kadri,2,Low,Primary,Opportunistic - unarmed
+SUS-00120,Basavaraj Naik,57,Male,Jayanagar 4th Block,3,Middle,Secondary,Cyber-enabled

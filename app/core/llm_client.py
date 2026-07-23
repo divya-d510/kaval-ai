@@ -59,17 +59,24 @@ def _anthropic():
 
 
 def _gemini_generate(**kwargs):
-    """generate_content with retry on transient 503/429 (free-tier congestion)."""
+    """generate_content with a short, bounded retry on transient 503/429.
+
+    Catalyst AppSail enforces a hard 30-second request timeout in production,
+    so this must fail fast rather than exhaust a long backoff: a Gemini
+    free-tier daily-quota 429 reports a retryDelay of 20-30+ seconds, which
+    won't resolve within any retry budget we can afford anyway. Two short
+    attempts (covers a brief transient blip) beat four attempts with
+    exponential backoff (which alone could exceed the platform timeout)."""
     from google.genai import errors
 
     last = None
-    for attempt in range(4):
+    for attempt in range(2):
         try:
             return _gemini().models.generate_content(**kwargs)
         except errors.APIError as e:
             if e.code in (429, 503):
                 last = e
-                time.sleep(2 ** attempt * 2)
+                time.sleep(1 + attempt)
             else:
                 raise
     raise last
@@ -104,6 +111,16 @@ def ask(system: str, user: str, max_tokens: int = 4096) -> str:
         messages=[{"role": "user", "content": user}],
     )
     return next((b.text for b in response.content if b.type == "text"), "")
+
+
+def ask_safe(system: str, user: str, fallback: str, max_tokens: int = 4096) -> str:
+    """Like ask(), but never raises — returns `fallback` on any provider error
+    (rate limits, transient outages). Use for narrative/summary calls where a
+    graceful degradation beats a 500."""
+    try:
+        return ask(system, user, max_tokens=max_tokens)
+    except Exception:
+        return fallback
 
 
 def ask_json(system: str, user: str, schema: dict, max_tokens: int = 4096) -> dict:

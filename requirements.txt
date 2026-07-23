@@ -9,3 +9,4 @@ zcatalyst-sdk
 python-dotenv
 pandas
 httpx
+fpdf2

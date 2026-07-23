@@ -73,21 +73,169 @@ FRAUD_MODES = ["chit fund", "fake investment", "real-estate advance", "loan proc
 
 N_FIRS = 400
 N_SUSPECTS = 120
+N_VICTIMS = 320
+
+SOCIO_ECONOMIC_BANDS = ["Low", "Middle", "High"]
+EDUCATION_LEVELS = ["Illiterate", "Primary", "Secondary", "Graduate", "Postgraduate"]
+MODUS_OPERANDI = ["Opportunistic - unarmed", "Organized - armed", "Cyber-enabled", "Repeat pattern - same MO"]
+
+CRIME_IMPACTS = {
+    "Theft": ["Financial loss", "Property damage"],
+    "Assault": ["Physical injury", "Emotional distress"],
+    "Cybercrime": ["Financial loss", "Emotional distress"],
+    "Robbery": ["Financial loss", "Physical injury"],
+    "Burglary": ["Property damage", "Financial loss"],
+    "Fraud": ["Financial loss", "Emotional distress"],
+    "Vehicle Theft": ["Financial loss", "Property damage"],
+    "Chain Snatching": ["Financial loss", "Physical injury"],
+}
+
+BANKS = ["SBI", "Canara Bank", "HDFC Bank", "ICICI Bank", "Karnataka Bank", "Union Bank"]
+ACCOUNT_TYPES = ["Savings", "Current", "Wallet"]
+
+
+def _modus_for(prior_cases):
+    """Repeat offenders skew toward organized/repeat-pattern MOs."""
+    if prior_cases >= 5:
+        return random.choices(MODUS_OPERANDI, weights=[15, 35, 15, 35])[0]
+    if prior_cases >= 2:
+        return random.choices(MODUS_OPERANDI, weights=[30, 25, 20, 25])[0]
+    return random.choices(MODUS_OPERANDI, weights=[45, 15, 30, 10])[0]
 
 
 def make_suspects():
     suspects = []
     all_areas = [a for d in DISTRICTS.values() for a in d["areas"]]
     for i in range(1, N_SUSPECTS + 1):
+        prior_cases = random.choices([0, 1, 2, 3, 5, 8], weights=[40, 25, 15, 10, 7, 3])[0]
         suspects.append({
             "suspect_id": f"SUS-{i:05d}",
             "name": f"{random.choice(FIRST_NAMES)} {random.choice(LAST_NAMES)}",
             "age": random.randint(18, 60),
             "gender": random.choices(["Male", "Female"], weights=[0.8, 0.2])[0],
             "known_address": random.choice(all_areas),
-            "prior_cases": random.choices([0, 1, 2, 3, 5, 8], weights=[40, 25, 15, 10, 7, 3])[0],
+            "prior_cases": prior_cases,
+            "socio_economic_band": random.choices(SOCIO_ECONOMIC_BANDS, weights=[0.45, 0.4, 0.15])[0],
+            "education_level": random.choices(EDUCATION_LEVELS, weights=[0.1, 0.25, 0.35, 0.25, 0.05])[0],
+            "modus_operandi": _modus_for(prior_cases),
         })
     return suspects
+
+
+def make_victims():
+    victims = []
+    all_areas = [a for d in DISTRICTS.values() for a in d["areas"]]
+    for i in range(1, N_VICTIMS + 1):
+        victims.append({
+            "victim_id": f"VIC-{i:05d}",
+            "name": f"{random.choice(FIRST_NAMES)} {random.choice(LAST_NAMES)}",
+            "age": random.randint(18, 75),
+            "gender": random.choices(["Male", "Female"], weights=[0.55, 0.45])[0],
+            "contact_area": random.choice(all_areas),
+        })
+    return victims
+
+
+def make_victim_links(firs, victims):
+    links = []
+    victim_ids = [v["victim_id"] for v in victims]
+    pool = list(victim_ids)
+    for fir in firs:
+        n_victims = random.choices([0, 1, 2], weights=[0.15, 0.7, 0.15])[0]
+        for _ in range(n_victims):
+            if not pool:
+                pool = list(victim_ids)
+            vid = pool.pop(random.randrange(len(pool)))
+            impact = random.choice(CRIME_IMPACTS.get(fir["crime_type"], ["Financial loss"]))
+            links.append({"fir_id": fir["fir_id"], "victim_id": vid, "impact": impact})
+    return links
+
+
+def make_financial(suspects, firs):
+    """A subset of suspects (biased toward repeat offenders and financial-crime
+    types) hold accounts. Transaction structure is deliberately non-random so
+    the mule-account heuristic (3+ distinct counterparties) means something:
+    most accounts only ever transact within a small, persistent cluster of
+    2-3 regular counterparties, while a handful of designated 'hub' accounts
+    fan out widely — those are the ones that should get flagged."""
+    candidates = [s for s in suspects if s["prior_cases"] >= 1]
+    if len(candidates) < 50:
+        candidates = suspects
+    holders = random.sample(candidates, min(55, len(candidates)))
+
+    accounts = []
+    acc_no = 1
+    for s in holders:
+        n_acc = random.choices([1, 2], weights=[0.7, 0.3])[0]
+        for _ in range(n_acc):
+            acc_id = f"ACC-{acc_no:05d}"
+            acc_no += 1
+            accounts.append({
+                "account_id": acc_id,
+                "suspect_id": s["suspect_id"],
+                "bank_name": random.choice(BANKS),
+                "account_number_masked": f"XXXX-XXXX-{random.randint(1000, 9999)}",
+                "account_type": random.choices(ACCOUNT_TYPES, weights=[0.55, 0.25, 0.2])[0],
+            })
+    account_ids = [a["account_id"] for a in accounts]
+
+    hub_accounts = random.sample(account_ids, min(4, len(account_ids)))
+    remaining = [a for a in account_ids if a not in hub_accounts]
+    random.shuffle(remaining)
+    clusters = []
+    i = 0
+    while i < len(remaining):
+        size = random.choice([2, 2, 3])
+        clusters.append(remaining[i:i + size])
+        i += size
+    clusters = [c for c in clusters if len(c) >= 2]
+
+    fraud_firs = [f["fir_id"] for f in firs if f["crime_type"] in ("Cybercrime", "Fraud")]
+    start = date(2025, 1, 1)
+    transactions = []
+    txn_no = 1
+
+    def add_txn(from_acc, to_acc):
+        nonlocal txn_no
+        amount = random.choice([500, 2000, 5000, 15000, 40000, 90000, 200000, 450000])
+        linked_fir = random.choice(fraud_firs) if fraud_firs and random.random() < 0.08 else None
+        flagged = amount >= 200000 or linked_fir is not None
+        reason = None
+        if linked_fir is not None:
+            reason = "Linked to an open Cybercrime/Fraud FIR"
+        elif amount >= 200000:
+            reason = "High-value transfer above Rs. 2,00,000"
+        transactions.append({
+            "transaction_id": f"TXN-{txn_no:06d}",
+            "from_account_id": from_acc,
+            "to_account_id": to_acc,
+            "amount": amount,
+            "txn_date": (start + timedelta(days=random.randint(0, 540))).isoformat(),
+            "fir_id": linked_fir or "",
+            "flagged_suspicious": 1 if flagged else 0,
+            "flag_reason": reason or "",
+        })
+        txn_no += 1
+
+    # Normal activity: repeated transfers within each small persistent cluster
+    for cluster in clusters:
+        for _ in range(random.randint(2, 5)):
+            a, b = random.sample(cluster, 2)
+            add_txn(a, b)
+
+    # Hub accounts: fan out to many distinct counterparties (the mule pattern)
+    for hub in hub_accounts:
+        others = random.sample([a for a in account_ids if a != hub], min(8, len(account_ids) - 1))
+        for other in others:
+            add_txn(hub, other)
+
+    # Top up toward a healthy transaction count with more ordinary cluster activity
+    while len(transactions) < 240 and clusters:
+        cluster = random.choice(clusters)
+        a, b = random.sample(cluster, 2)
+        add_txn(a, b)
+
+    return accounts, transactions
 
 
 def make_description(crime_type, area):
@@ -183,11 +331,30 @@ SQLITE_DDL = {
     "suspects": {
         "suspect_id": "TEXT PRIMARY KEY", "name": "TEXT", "age": "INTEGER",
         "gender": "TEXT", "known_address": "TEXT", "prior_cases": "INTEGER",
+        "socio_economic_band": "TEXT", "education_level": "TEXT", "modus_operandi": "TEXT",
     },
     "fir_suspect_links": {"fir_id": "TEXT", "suspect_id": "TEXT", "role": "TEXT"},
     "suspect_associations": {
         "suspect_id_a": "TEXT", "suspect_id_b": "TEXT",
         "relation_type": "TEXT", "confidence": "REAL",
+    },
+    "victims": {
+        "victim_id": "TEXT PRIMARY KEY", "name": "TEXT", "age": "INTEGER",
+        "gender": "TEXT", "contact_area": "TEXT",
+    },
+    "fir_victim_links": {"fir_id": "TEXT", "victim_id": "TEXT", "impact": "TEXT"},
+    "financial_accounts": {
+        "account_id": "TEXT PRIMARY KEY", "suspect_id": "TEXT", "bank_name": "TEXT",
+        "account_number_masked": "TEXT", "account_type": "TEXT",
+    },
+    "financial_transactions": {
+        "transaction_id": "TEXT PRIMARY KEY", "from_account_id": "TEXT", "to_account_id": "TEXT",
+        "amount": "REAL", "txn_date": "TEXT", "fir_id": "TEXT",
+        "flagged_suspicious": "INTEGER", "flag_reason": "TEXT",
+    },
+    "audit_log": {
+        "log_id": "TEXT PRIMARY KEY", "logged_at": "TEXT", "role": "TEXT",
+        "endpoint": "TEXT", "summary": "TEXT",
     },
 }
 
@@ -206,14 +373,23 @@ def main():
     firs = make_firs()
     links = make_links(firs, suspects)
     assocs = make_associations(suspects)
+    victims = make_victims()
+    victim_links = make_victim_links(firs, victims)
+    accounts, transactions = make_financial(suspects, firs)
 
     store.bulk_insert("suspects", suspects)
     store.bulk_insert("fir_records", firs)
     store.bulk_insert("fir_suspect_links", links)
     store.bulk_insert("suspect_associations", assocs)
+    store.bulk_insert("victims", victims)
+    store.bulk_insert("fir_victim_links", victim_links)
+    store.bulk_insert("financial_accounts", accounts)
+    store.bulk_insert("financial_transactions", transactions)
 
     print(f"Seeded: {len(firs)} FIRs, {len(suspects)} suspects, "
-          f"{len(links)} FIR-suspect links, {len(assocs)} associations")
+          f"{len(links)} FIR-suspect links, {len(assocs)} associations, "
+          f"{len(victims)} victims, {len(victim_links)} FIR-victim links, "
+          f"{len(accounts)} financial accounts, {len(transactions)} transactions")
 
 
 if __name__ == "__main__":

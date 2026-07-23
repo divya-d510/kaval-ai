@@ -6,7 +6,10 @@ from pathlib import Path
 
 DB = Path(__file__).parent / "ksp_local.db"
 OUT = Path(__file__).parent / "export"
-TABLES = ["fir_records", "suspects", "fir_suspect_links", "suspect_associations"]
+TABLES = [
+    "fir_records", "suspects", "fir_suspect_links", "suspect_associations",
+    "victims", "fir_victim_links", "financial_accounts", "financial_transactions",
+]
 
 
 def main():

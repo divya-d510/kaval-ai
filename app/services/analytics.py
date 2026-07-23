@@ -4,7 +4,7 @@ import json
 from collections import Counter, defaultdict
 
 from app.core.catalyst_datastore import get_datastore
-from app.core.llm_client import ask
+from app.core.llm_client import ask_safe
 
 SUMMARY_SYSTEM = """You are a crime analyst for Karnataka State Police.
 Given aggregate FIR statistics (JSON), write a short briefing (4-6 sentences)
@@ -37,8 +37,9 @@ def compute_stats() -> dict:
 
 def stats_with_summary(language: str = "en") -> dict:
     stats = compute_stats()
-    summary = ask(
+    summary = ask_safe(
         SUMMARY_SYSTEM,
         f"Language: {language}\n\nStatistics:\n{json.dumps(stats, ensure_ascii=False)}",
+        fallback="AI summary is temporarily unavailable — the statistics above are unaffected.",
     )
     return {**stats, "summary": summary}

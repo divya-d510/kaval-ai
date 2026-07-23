@@ -10,7 +10,7 @@ import os
 import re
 
 from app.core.catalyst_datastore import get_datastore
-from app.core.llm_client import ask_json, ask
+from app.core.llm_client import ask_json, ask_safe
 from app.core.schema import TABLE_SCHEMAS
 
 QUERY_SCHEMA = {
@@ -68,12 +68,20 @@ Rules:
   ಹುಬ್ಬಳ್ಳಿ / ಧಾರವಾಡ -> 'Hubballi-Dharwad'.
 - Kannada crime terms: ಕಳ್ಳತನ -> 'Theft'; ಸೈಬರ್ ಅಪರಾಧ -> 'Cybercrime'; ದರೋಡೆ -> 'Robbery';
   ಹಲ್ಲೆ -> 'Assault'; ವಂಚನೆ -> 'Fraud'; ಸರಗಳ್ಳತನ -> 'Chain Snatching'.
+- A "Conversation so far" block may precede the current question — it is prior turns in this
+  same session, most recent last. Use it ONLY to resolve references the current question makes
+  to that context (e.g. "what about Mysuru instead?", "and last month?", "same but for Theft").
+  Every constraint the CURRENT question states or implies still applies; do not carry forward a
+  constraint the current question is clearly replacing.
 """
 
 ANSWER_SYSTEM = """You are a helpful analyst for Karnataka State Police officers.
 Given a user's question and query results (JSON rows), write a concise, factual answer.
 Reply in the SAME language the user asked in (English or Kannada).
-If the results are empty, say no matching records were found. Do not invent data."""
+If the results are empty, say no matching records were found. Do not invent data.
+Prior conversation turns may be included for context only — answer the CURRENT question."""
+
+HISTORY_TURNS = 4  # how many prior turns to carry as context for follow-ups
 
 
 def _is_safe_select(sql: str) -> bool:
@@ -84,8 +92,30 @@ def _is_safe_select(sql: str) -> bool:
     return not any(word in lowered for word in forbidden)
 
 
-def run_nl_query(question: str) -> dict:
-    plan = ask_json(NL_TO_SQL_SYSTEM, question, QUERY_SCHEMA)
+def _history_block(history: list[dict] | None) -> str:
+    if not history:
+        return ""
+    recent = history[-HISTORY_TURNS:]
+    lines = ["Conversation so far:"]
+    for turn in recent:
+        lines.append(f"  Q: {turn['question']}")
+        lines.append(f"  A: {turn['answer']}")
+    return "\n".join(lines) + "\n\n"
+
+
+def run_nl_query(question: str, history: list[dict] | None = None) -> dict:
+    context = _history_block(history)
+    try:
+        plan = ask_json(NL_TO_SQL_SYSTEM, f"{context}Current question: {question}", QUERY_SCHEMA)
+    except Exception:
+        return {
+            "question": question,
+            "sql": "",
+            "rows": [],
+            "answer": "Could not process the question right now — the AI service is temporarily "
+            "unavailable or over its rate limit. Please try again shortly.",
+            "language": "en",
+        }
 
     # ZCQL rejects aggregates over *; ROWID is valid in both SQLite and ZCQL
     plan["sql"] = re.sub(r"(?i)count\(\s*\*\s*\)", "COUNT(ROWID)", plan["sql"])
@@ -110,9 +140,12 @@ def run_nl_query(question: str) -> dict:
             "language": plan["language"],
         }
 
-    answer = ask(
+    answer = ask_safe(
         ANSWER_SYSTEM,
-        f"Question: {question}\n\nQuery run: {plan['sql']}\n\nResults (JSON):\n{json.dumps(rows[:50], ensure_ascii=False)}",
+        f"{context}Question: {question}\n\nQuery run: {plan['sql']}\n\n"
+        f"Results (JSON):\n{json.dumps(rows[:50], ensure_ascii=False)}",
+        fallback=f"Query ran successfully but the AI answer is temporarily unavailable — "
+        f"see the {len(rows)} row(s) and generated SQL above.",
     )
 
     return {

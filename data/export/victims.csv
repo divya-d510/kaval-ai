@@ -1,0 +1,321 @@
+victim_id,name,age,gender,contact_area
+VIC-00001,Rekha Shastri,44,Female,Surathkal
+VIC-00002,Santosh Reddy,41,Male,Malleshwaram
+VIC-00003,Venkatesh Patil,29,Male,Whitefield
+VIC-00004,Anand Acharya,70,Male,Devaraja Mohalla
+VIC-00005,Suresh Swamy,29,Female,Devaraja Mohalla
+VIC-00006,Harish Hegde,46,Female,Whitefield
+VIC-00007,Santosh Gowda,36,Male,Whitefield
+VIC-00008,Harish Gowda,39,Male,Lashkar Mohalla
+VIC-00009,Girish Patil,61,Female,MG Road
+VIC-00010,Suresh Rao,66,Female,Indiranagar
+VIC-00011,Prakash Shetty,51,Female,Panambur
+VIC-00012,Raghavendra Shastri,66,Male,Gokul Road
+VIC-00013,Girish Naik,56,Male,Kadri
+VIC-00014,Deepa Naik,70,Male,Kadri
+VIC-00015,Sunita Hegde,57,Male,Kadri
+VIC-00016,Deepa Gowda,18,Male,Panambur
+VIC-00017,Kiran Kumar,56,Male,Old Hubballi
+VIC-00018,Harish Swamy,66,Female,Kadri
+VIC-00019,Anand Acharya,61,Female,Gokul Road
+VIC-00020,Mahesh Hegde,60,Male,Hampankatta
+VIC-00021,Ravi Murthy,41,Female,Hampankatta
+VIC-00022,Anand Shetty,56,Male,Jayanagar 4th Block
+VIC-00023,Lakshmi Hegde,48,Female,Whitefield
+VIC-00024,Sunita Rao,56,Male,Malleshwaram
+VIC-00025,Mahesh Acharya,68,Female,Old Hubballi
+VIC-00026,Suresh Reddy,49,Female,Hebbal Industrial Area
+VIC-00027,Basavaraj Patil,28,Female,Whitefield
+VIC-00028,Girish Murthy,52,Male,Devaraja Mohalla
+VIC-00029,Santosh Murthy,62,Male,Surathkal
+VIC-00030,Ravi Reddy,38,Female,Kuvempunagar
+VIC-00031,Lokesh Swamy,34,Female,Whitefield
+VIC-00032,Kiran Shastri,58,Female,Jayanagar 4th Block
+VIC-00033,Deepa Shetty,54,Female,Jayanagar 4th Block
+VIC-00034,Deepa Hegde,63,Female,Panambur
+VIC-00035,Basavaraj Hegde,69,Male,Kuvempunagar
+VIC-00036,Prakash Rao,23,Male,Hampankatta
+VIC-00037,Shivakumar Shetty,65,Female,Kadri
+VIC-00038,Kiran Naik,42,Female,MG Road
+VIC-00039,Nagesh Kumar,55,Male,Panambur
+VIC-00040,Rekha Naik,67,Male,Malleshwaram
+VIC-00041,Mahesh Murthy,56,Female,Whitefield
+VIC-00042,Sunita Kumar,52,Female,Hampankatta
+VIC-00043,Kiran Rao,71,Male,Vidyanagar
+VIC-00044,Kiran Acharya,36,Male,Indiranagar
+VIC-00045,Raghavendra Naik,37,Male,Whitefield
+VIC-00046,Harish Swamy,54,Male,Devaraja Mohalla
+VIC-00047,Girish Rao,63,Female,Indiranagar
+VIC-00048,Deepa Reddy,70,Female,Lashkar Mohalla
+VIC-00049,Suresh Reddy,72,Male,Panambur
+VIC-00050,Nagesh Murthy,72,Male,MG Road
+VIC-00051,Basavaraj Hegde,39,Male,Gokul Road
+VIC-00052,Lakshmi Hegde,43,Male,Hebbal Industrial Area
+VIC-00053,Nagesh Swamy,30,Female,Dharwad Market
+VIC-00054,Sunita Gowda,26,Male,Indiranagar
+VIC-00055,Nagesh Patil,59,Male,Malleshwaram
+VIC-00056,Anand Swamy,48,Male,Malleshwaram
+VIC-00057,Venkatesh Shetty,69,Female,MG Road
+VIC-00058,Lakshmi Swamy,72,Female,Malleshwaram
+VIC-00059,Sunita Hegde,61,Female,Indiranagar
+VIC-00060,Prakash Naik,48,Male,Indiranagar
+VIC-00061,Prakash Shastri,59,Male,Surathkal
+VIC-00062,Kiran Murthy,64,Male,Indiranagar
+VIC-00063,Prakash Shetty,43,Male,Koramangala
+VIC-00064,Sunita Swamy,68,Female,Jayanagar 4th Block
+VIC-00065,Anand Murthy,42,Male,Vidyanagar
+VIC-00066,Lakshmi Kumar,25,Male,Whitefield
+VIC-00067,Girish Murthy,60,Female,Lashkar Mohalla
+VIC-00068,Ravi Acharya,54,Female,Gokul Road
+VIC-00069,Harish Swamy,65,Male,Koramangala
+VIC-00070,Sunita Patil,59,Female,Hebbal Industrial Area
+VIC-00071,Shivakumar Reddy,24,Male,Dharwad Market
+VIC-00072,Santosh Hegde,70,Female,Panambur
+VIC-00073,Basavaraj Shastri,68,Female,Gokul Road
+VIC-00074,Manjunath Shastri,71,Female,Whitefield
+VIC-00075,Venkatesh Murthy,75,Male,Koramangala
+VIC-00076,Ravi Shastri,46,Female,Whitefield
+VIC-00077,Suresh Reddy,54,Male,Koramangala
+VIC-00078,Manjunath Shastri,34,Female,Indiranagar
+VIC-00079,Manjunath Gowda,50,Male,Dharwad Market
+VIC-00080,Santosh Hegde,60,Male,Hebbal Industrial Area
+VIC-00081,Suresh Shastri,75,Female,Dharwad Market
+VIC-00082,Anand Reddy,54,Male,Hampankatta
+VIC-00083,Mahesh Naik,56,Male,Devaraja Mohalla
+VIC-00084,Prakash Murthy,70,Male,Indiranagar
+VIC-00085,Venkatesh Reddy,37,Female,Devaraja Mohalla
+VIC-00086,Kiran Acharya,53,Male,Kadri
+VIC-00087,Harish Reddy,64,Female,Jayanagar 4th Block
+VIC-00088,Basavaraj Rao,34,Male,Koramangala
+VIC-00089,Sunita Patil,23,Female,Surathkal
+VIC-00090,Kiran Shastri,31,Male,Kuvempunagar
+VIC-00091,Venkatesh Swamy,41,Female,Old Hubballi
+VIC-00092,Raghavendra Reddy,44,Female,Hampankatta
+VIC-00093,Rekha Hegde,19,Female,Lashkar Mohalla
+VIC-00094,Manjunath Rao,25,Male,Dharwad Market
+VIC-00095,Rekha Gowda,39,Female,Kadri
+VIC-00096,Deepa Rao,27,Female,Lashkar Mohalla
+VIC-00097,Harish Kumar,24,Male,Lashkar Mohalla
+VIC-00098,Sunita Gowda,68,Female,Koramangala
+VIC-00099,Mahesh Swamy,74,Male,Gokul Road
+VIC-00100,Prakash Shastri,40,Female,Hebbal Industrial Area
+VIC-00101,Basavaraj Rao,56,Male,Indiranagar
+VIC-00102,Santosh Naik,66,Male,Kadri
+VIC-00103,Basavaraj Shastri,56,Female,Panambur
+VIC-00104,Girish Acharya,26,Male,Old Hubballi
+VIC-00105,Kiran Murthy,26,Male,Kuvempunagar
+VIC-00106,Suresh Swamy,58,Female,Lashkar Mohalla
+VIC-00107,Raghavendra Hegde,63,Male,Vidyanagar
+VIC-00108,Lakshmi Patil,50,Male,Surathkal
+VIC-00109,Mahesh Swamy,74,Female,Lashkar Mohalla
+VIC-00110,Nagesh Murthy,72,Male,Hebbal Industrial Area
+VIC-00111,Rekha Naik,72,Male,Jayanagar 4th Block
+VIC-00112,Manjunath Swamy,33,Female,Koramangala
+VIC-00113,Shivakumar Kumar,23,Female,Dharwad Market
+VIC-00114,Girish Kumar,45,Female,Malleshwaram
+VIC-00115,Girish Patil,50,Female,Dharwad Market
+VIC-00116,Prakash Hegde,18,Female,MG Road
+VIC-00117,Rekha Swamy,52,Female,Lashkar Mohalla
+VIC-00118,Mahesh Murthy,56,Male,Vidyanagar
+VIC-00119,Santosh Murthy,74,Female,Lashkar Mohalla
+VIC-00120,Santosh Gowda,41,Female,Old Hubballi
+VIC-00121,Lakshmi Kumar,45,Male,Koramangala
+VIC-00122,Lakshmi Gowda,39,Female,Lashkar Mohalla
+VIC-00123,Basavaraj Gowda,36,Male,Hebbal Industrial Area
+VIC-00124,Harish Shetty,18,Female,Panambur
+VIC-00125,Venkatesh Rao,59,Male,Indiranagar
+VIC-00126,Anand Acharya,72,Male,Kadri
+VIC-00127,Ravi Acharya,47,Male,Kadri
+VIC-00128,Prakash Kumar,40,Female,Koramangala
+VIC-00129,Sunita Naik,18,Male,Gokul Road
+VIC-00130,Venkatesh Gowda,51,Male,Malleshwaram
+VIC-00131,Rekha Gowda,49,Male,Kuvempunagar
+VIC-00132,Lokesh Patil,43,Male,Kadri
+VIC-00133,Rekha Reddy,52,Female,Whitefield
+VIC-00134,Anand Murthy,71,Male,Malleshwaram
+VIC-00135,Lakshmi Swamy,45,Male,Devaraja Mohalla
+VIC-00136,Prakash Shetty,36,Male,Panambur
+VIC-00137,Rekha Swamy,39,Female,Koramangala
+VIC-00138,Venkatesh Patil,60,Female,Whitefield
+VIC-00139,Rekha Patil,53,Male,Malleshwaram
+VIC-00140,Deepa Hegde,50,Female,Panambur
+VIC-00141,Kiran Gowda,24,Female,Malleshwaram
+VIC-00142,Kiran Naik,50,Male,Lashkar Mohalla
+VIC-00143,Suresh Murthy,71,Male,MG Road
+VIC-00144,Rekha Patil,36,Male,Jayanagar 4th Block
+VIC-00145,Rekha Shetty,57,Male,Old Hubballi
+VIC-00146,Santosh Shetty,35,Female,Kuvempunagar
+VIC-00147,Lokesh Murthy,70,Male,Gokul Road
+VIC-00148,Prakash Swamy,64,Male,Koramangala
+VIC-00149,Venkatesh Acharya,58,Female,Lashkar Mohalla
+VIC-00150,Prakash Reddy,43,Male,Devaraja Mohalla
+VIC-00151,Kiran Hegde,19,Female,Jayanagar 4th Block
+VIC-00152,Suresh Hegde,44,Male,Lashkar Mohalla
+VIC-00153,Lokesh Naik,45,Male,Old Hubballi
+VIC-00154,Rekha Murthy,21,Male,Kuvempunagar
+VIC-00155,Lakshmi Rao,40,Female,Lashkar Mohalla
+VIC-00156,Deepa Kumar,29,Male,Indiranagar
+VIC-00157,Deepa Shetty,36,Male,Whitefield
+VIC-00158,Rekha Reddy,34,Female,Kadri
+VIC-00159,Deepa Rao,25,Male,MG Road
+VIC-00160,Basavaraj Reddy,39,Male,Kadri
+VIC-00161,Shivakumar Shastri,56,Male,Kuvempunagar
+VIC-00162,Venkatesh Acharya,42,Male,Whitefield
+VIC-00163,Kiran Murthy,65,Female,Indiranagar
+VIC-00164,Shivakumar Murthy,70,Male,Vidyanagar
+VIC-00165,Prakash Gowda,52,Female,Hebbal Industrial Area
+VIC-00166,Girish Shetty,52,Female,Indiranagar
+VIC-00167,Kiran Shetty,44,Female,Kuvempunagar
+VIC-00168,Basavaraj Naik,75,Male,Whitefield
+VIC-00169,Rekha Gowda,48,Male,Old Hubballi
+VIC-00170,Ravi Reddy,56,Male,Malleshwaram
+VIC-00171,Nagesh Kumar,54,Male,Devaraja Mohalla
+VIC-00172,Sunita Patil,61,Male,Old Hubballi
+VIC-00173,Manjunath Reddy,46,Female,Panambur
+VIC-00174,Basavaraj Hegde,43,Female,Devaraja Mohalla
+VIC-00175,Santosh Kumar,28,Female,MG Road
+VIC-00176,Mahesh Patil,50,Female,Old Hubballi
+VIC-00177,Harish Rao,72,Male,Kuvempunagar
+VIC-00178,Basavaraj Gowda,28,Male,Dharwad Market
+VIC-00179,Lokesh Rao,20,Female,Kuvempunagar
+VIC-00180,Kiran Rao,73,Female,Lashkar Mohalla
+VIC-00181,Venkatesh Shastri,25,Male,Kadri
+VIC-00182,Raghavendra Naik,38,Male,Dharwad Market
+VIC-00183,Harish Swamy,26,Male,Hebbal Industrial Area
+VIC-00184,Deepa Kumar,58,Female,Kadri
+VIC-00185,Lokesh Swamy,35,Male,MG Road
+VIC-00186,Basavaraj Murthy,73,Female,Whitefield
+VIC-00187,Sunita Murthy,34,Female,Dharwad Market
+VIC-00188,Venkatesh Patil,32,Male,Devaraja Mohalla
+VIC-00189,Shivakumar Murthy,69,Female,Panambur
+VIC-00190,Kiran Patil,32,Female,Surathkal
+VIC-00191,Lakshmi Reddy,75,Male,Gokul Road
+VIC-00192,Santosh Patil,29,Female,Koramangala
+VIC-00193,Venkatesh Acharya,49,Female,Koramangala
+VIC-00194,Nagesh Kumar,37,Male,Koramangala
+VIC-00195,Sunita Murthy,56,Male,Malleshwaram
+VIC-00196,Manjunath Hegde,33,Male,Panambur
+VIC-00197,Prakash Swamy,51,Male,MG Road
+VIC-00198,Raghavendra Gowda,42,Male,Whitefield
+VIC-00199,Ravi Murthy,20,Male,Jayanagar 4th Block
+VIC-00200,Harish Reddy,58,Female,MG Road
+VIC-00201,Prakash Shastri,65,Female,Jayanagar 4th Block
+VIC-00202,Venkatesh Reddy,48,Female,Vidyanagar
+VIC-00203,Santosh Rao,39,Male,Lashkar Mohalla
+VIC-00204,Suresh Shastri,62,Male,Dharwad Market
+VIC-00205,Prakash Kumar,70,Male,Dharwad Market
+VIC-00206,Nagesh Gowda,50,Female,Surathkal
+VIC-00207,Kiran Kumar,32,Male,Surathkal
+VIC-00208,Sunita Reddy,40,Female,Lashkar Mohalla
+VIC-00209,Sunita Murthy,74,Female,Whitefield
+VIC-00210,Girish Reddy,25,Male,Hebbal Industrial Area
+VIC-00211,Lakshmi Gowda,57,Male,Kadri
+VIC-00212,Manjunath Kumar,56,Male,Surathkal
+VIC-00213,Mahesh Naik,56,Male,Surathkal
+VIC-00214,Kiran Murthy,61,Male,Hebbal Industrial Area
+VIC-00215,Lakshmi Gowda,35,Female,Kadri
+VIC-00216,Harish Swamy,69,Male,MG Road
+VIC-00217,Kiran Murthy,27,Male,Panambur
+VIC-00218,Anand Swamy,68,Female,Gokul Road
+VIC-00219,Manjunath Gowda,54,Male,Kuvempunagar
+VIC-00220,Kiran Gowda,38,Female,Koramangala
+VIC-00221,Sunita Naik,38,Male,Gokul Road
+VIC-00222,Rekha Acharya,68,Female,Malleshwaram
+VIC-00223,Lokesh Hegde,44,Male,Dharwad Market
+VIC-00224,Basavaraj Patil,52,Male,Lashkar Mohalla
+VIC-00225,Sunita Gowda,55,Female,Old Hubballi
+VIC-00226,Shivakumar Swamy,69,Female,Jayanagar 4th Block
+VIC-00227,Lokesh Naik,18,Male,MG Road
+VIC-00228,Lakshmi Shastri,48,Female,Whitefield
+VIC-00229,Suresh Naik,41,Female,Malleshwaram
+VIC-00230,Nagesh Patil,27,Female,Dharwad Market
+VIC-00231,Rekha Shetty,31,Female,Indiranagar
+VIC-00232,Kiran Gowda,62,Female,Panambur
+VIC-00233,Ravi Swamy,45,Male,Whitefield
+VIC-00234,Shivakumar Gowda,48,Female,Koramangala
+VIC-00235,Ravi Reddy,41,Male,Lashkar Mohalla
+VIC-00236,Manjunath Kumar,54,Female,Surathkal
+VIC-00237,Kiran Reddy,48,Female,Old Hubballi
+VIC-00238,Nagesh Patil,44,Female,Vidyanagar
+VIC-00239,Ravi Rao,25,Male,Indiranagar
+VIC-00240,Raghavendra Reddy,50,Male,Panambur
+VIC-00241,Rekha Murthy,74,Male,Kuvempunagar
+VIC-00242,Shivakumar Shastri,37,Female,Surathkal
+VIC-00243,Santosh Rao,23,Male,Malleshwaram
+VIC-00244,Venkatesh Hegde,57,Male,Panambur
+VIC-00245,Santosh Swamy,53,Female,Jayanagar 4th Block
+VIC-00246,Anand Patil,38,Female,Panambur
+VIC-00247,Sunita Reddy,21,Female,Surathkal
+VIC-00248,Venkatesh Rao,24,Male,Kadri
+VIC-00249,Raghavendra Naik,19,Male,Koramangala
+VIC-00250,Basavaraj Gowda,22,Male,MG Road
+VIC-00251,Nagesh Shetty,53,Male,Indiranagar
+VIC-00252,Lokesh Rao,23,Female,Indiranagar
+VIC-00253,Shivakumar Patil,20,Male,Jayanagar 4th Block
+VIC-00254,Nagesh Kumar,40,Female,Panambur
+VIC-00255,Mahesh Shetty,38,Female,Kadri
+VIC-00256,Kiran Swamy,61,Male,Surathkal
+VIC-00257,Mahesh Gowda,50,Female,Malleshwaram
+VIC-00258,Ravi Acharya,68,Male,Indiranagar
+VIC-00259,Nagesh Reddy,27,Female,Jayanagar 4th Block
+VIC-00260,Manjunath Swamy,32,Female,Malleshwaram
+VIC-00261,Santosh Shastri,51,Female,Old Hubballi
+VIC-00262,Deepa Patil,68,Male,Hebbal Industrial Area
+VIC-00263,Lakshmi Acharya,72,Female,Indiranagar
+VIC-00264,Sunita Shetty,31,Female,Jayanagar 4th Block
+VIC-00265,Kiran Acharya,58,Female,Whitefield
+VIC-00266,Ravi Reddy,67,Female,Dharwad Market
+VIC-00267,Manjunath Patil,24,Male,Koramangala
+VIC-00268,Nagesh Reddy,22,Male,Kadri
+VIC-00269,Lakshmi Gowda,22,Male,Vidyanagar
+VIC-00270,Harish Patil,34,Female,Vidyanagar
+VIC-00271,Kiran Gowda,54,Male,Kadri
+VIC-00272,Nagesh Hegde,44,Female,Malleshwaram
+VIC-00273,Anand Naik,50,Female,Hampankatta
+VIC-00274,Lakshmi Gowda,61,Male,Vidyanagar
+VIC-00275,Harish Murthy,20,Female,Indiranagar
+VIC-00276,Lokesh Swamy,70,Female,Malleshwaram
+VIC-00277,Prakash Rao,42,Male,Panambur
+VIC-00278,Manjunath Shetty,42,Female,Jayanagar 4th Block
+VIC-00279,Lakshmi Patil,47,Female,Vidyanagar
+VIC-00280,Prakash Gowda,29,Female,Panambur
+VIC-00281,Rekha Shetty,43,Male,Hampankatta
+VIC-00282,Deepa Acharya,49,Male,Gokul Road
+VIC-00283,Prakash Rao,47,Male,Malleshwaram
+VIC-00284,Girish Reddy,58,Male,Indiranagar
+VIC-00285,Raghavendra Hegde,21,Female,Kadri
+VIC-00286,Rekha Patil,31,Male,MG Road
+VIC-00287,Rekha Rao,34,Female,Jayanagar 4th Block
+VIC-00288,Kiran Gowda,35,Male,Hebbal Industrial Area
+VIC-00289,Anand Hegde,51,Male,Kuvempunagar
+VIC-00290,Santosh Kumar,23,Female,Surathkal
+VIC-00291,Deepa Rao,28,Male,Surathkal
+VIC-00292,Girish Patil,52,Female,Koramangala
+VIC-00293,Rekha Naik,62,Female,MG Road
+VIC-00294,Basavaraj Acharya,30,Male,Malleshwaram
+VIC-00295,Deepa Murthy,70,Female,Hampankatta
+VIC-00296,Ravi Reddy,75,Male,Malleshwaram
+VIC-00297,Girish Naik,25,Female,Surathkal
+VIC-00298,Harish Shastri,64,Male,Vidyanagar
+VIC-00299,Kiran Murthy,46,Female,Whitefield
+VIC-00300,Suresh Shetty,65,Female,Surathkal
+VIC-00301,Basavaraj Reddy,56,Male,Kadri
+VIC-00302,Venkatesh Shetty,61,Female,MG Road
+VIC-00303,Lakshmi Naik,19,Male,Hebbal Industrial Area
+VIC-00304,Mahesh Gowda,62,Male,Vidyanagar
+VIC-00305,Rekha Hegde,40,Male,Dharwad Market
+VIC-00306,Rekha Shastri,66,Male,Koramangala
+VIC-00307,Anand Hegde,41,Male,Koramangala
+VIC-00308,Basavaraj Hegde,42,Male,Surathkal
+VIC-00309,Nagesh Swamy,57,Female,Whitefield
+VIC-00310,Manjunath Gowda,23,Female,Surathkal
+VIC-00311,Prakash Patil,65,Female,Dharwad Market
+VIC-00312,Prakash Murthy,46,Male,Indiranagar
+VIC-00313,Nagesh Hegde,31,Male,Vidyanagar
+VIC-00314,Basavaraj Hegde,25,Male,Gokul Road
+VIC-00315,Prakash Naik,68,Female,Surathkal
+VIC-00316,Sunita Kumar,41,Female,Old Hubballi
+VIC-00317,Nagesh Rao,74,Female,Hebbal Industrial Area
+VIC-00318,Rekha Murthy,33,Male,Surathkal
+VIC-00319,Suresh Kumar,19,Male,Kadri
+VIC-00320,Mahesh Swamy,56,Male,Koramangala
