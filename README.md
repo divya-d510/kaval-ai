@@ -51,7 +51,7 @@ flowchart LR
     end
 
     DS[("Zoho Catalyst\nData Store")]
-    LLM["Gemini API\n(gemini-2.5-flash)"]
+    LLM["Gemini API\n(gemini-flash-latest)"]
 
     Browser --> UI
     UI -- "HTTPS / REST\nX-User-Role header" --> API
@@ -72,7 +72,7 @@ The frontend and backend are deployed independently and talk over plain HTTPS �
 |---|---|
 | Frontend | [Streamlit](https://streamlit.io) — Python-native reactive UI, Plotly for charts/network graphs, [fpdf2](https://py-pdf.github.io/fpdf2/) (+ bundled Noto Sans Kannada font) for PDF export, browser-native Web Speech API for voice in/out |
 | Backend | [FastAPI](https://fastapi.tiangolo.com) on Uvicorn — async REST API |
-| LLM | Google **Gemini** (`gemini-2.5-flash`) for NL→SQL translation and narrative generation, with Anthropic Claude as a drop-in alternate provider |
+| LLM | Google **Gemini** (`gemini-flash-latest`) for NL→SQL translation and narrative generation, with Anthropic Claude as a drop-in alternate provider |
 | Data store | SQLite locally / **Zoho Catalyst Data Store** (via ZCQL) in production |
 | Graph analysis | [NetworkX](https://networkx.org) — association graphs, community detection, centrality |
 | Auth | Zoho Catalyst session authentication (`zcatalyst-sdk`) + an application-level role permission system (`app/core/rbac.py`) |

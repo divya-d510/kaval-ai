@@ -33,7 +33,7 @@ def _provider() -> str:
     )
 
 
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-flash-latest")
 ANTHROPIC_MODEL = os.getenv("CLAUDE_MODEL", "claude-opus-4-8")
 
 _gemini_client = None
