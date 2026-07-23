@@ -3,6 +3,7 @@
 **Karnataka AI Voice & Analytics for Law enforcement** — an intelligent conversational AI and crime analytics platform for the Karnataka State Police (KSP) crime database. Ask a question in English or Kannada and get a sourced answer; beyond that, discover criminal networks, sociological patterns, offender risk, financial trails, and emerging crime trends — all grounded in the same auditable data.
 
 **Live app:** https://kaval-ai-z3f3khdbtekczzydaghtz6.streamlit.app
+
 **API:** https://ksp-api-50044130144.development.catalystappsail.in
 
 ---
