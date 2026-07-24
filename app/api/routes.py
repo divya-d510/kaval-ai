@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, Query, Response
 from pydantic import BaseModel
 
 from app.core.catalyst_auth import get_current_user
@@ -9,6 +9,7 @@ from app.services import (
     financial,
     forecasting,
     graph_builder,
+    pdf_export,
     profiling,
     query_engine,
     sociological,
@@ -20,6 +21,7 @@ router = APIRouter(dependencies=[Depends(get_current_user)])
 class ConversationTurn(BaseModel):
     question: str
     answer: str
+    sql: str | None = None
 
 
 class NLQuery(BaseModel):
@@ -33,6 +35,21 @@ def nl_query(body: NLQuery, role: str = Depends(require_role("query"))):
     result = query_engine.run_nl_query(body.question, history=history)
     log_action(role, "/api/query", body.question)
     return result
+
+
+class ExportPdfRequest(BaseModel):
+    conversation: list[ConversationTurn]
+
+
+@router.post("/export-pdf")
+def export_pdf(body: ExportPdfRequest, role: str = Depends(require_role("query"))):
+    pdf_bytes = pdf_export.build_conversation_pdf([t.model_dump() for t in body.conversation])
+    log_action(role, "/api/export-pdf", f"{len(body.conversation)} turns")
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={"Content-Disposition": "attachment; filename=kaval_ai_conversation.pdf"},
+    )
 
 
 @router.get("/graph")

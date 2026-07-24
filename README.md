@@ -2,7 +2,9 @@
 
 **Karnataka AI Voice & Analytics for Law enforcement** — an intelligent conversational AI and crime analytics platform for the Karnataka State Police (KSP) crime database. Ask a question in English or Kannada and get a sourced answer; beyond that, discover criminal networks, sociological patterns, offender risk, financial trails, and emerging crime trends — all grounded in the same auditable data.
 
-**Live app:** https://kaval-ai-z3f3khdbtekczzydaghtz6.streamlit.app
+**Live app (Zoho Catalyst, official submission):** https://ksp-ui-50044130144.development.catalystappsail.in
+
+**Live app (Streamlit Community Cloud, mirror):** https://kaval-ai-z3f3khdbtekczzydaghtz6.streamlit.app
 
 **API:** https://ksp-api-50044130144.development.catalystappsail.in
 
@@ -39,7 +41,12 @@ flowchart LR
         Browser["Browser"]
     end
 
-    subgraph "Streamlit Community Cloud"
+    subgraph "Zoho Catalyst AppSail (ksp-ui)"
+        HTML["Server-rendered HTML/JS UI\ncatalyst_frontend/main.py\n(role selector, chat, 9 views)"]
+        Proxy["/api/* same-origin proxy\n(httpx -> ksp-api)"]
+    end
+
+    subgraph "Streamlit Community Cloud (mirror)"
         UI["Streamlit UI\nfrontend/streamlit_app.py\n(role selector, chat, 9 tabs)"]
     end
 
@@ -53,8 +60,11 @@ flowchart LR
     DS[("Zoho Catalyst\nData Store")]
     LLM["Gemini API\n(gemini-flash-latest)"]
 
+    Browser --> HTML
     Browser --> UI
-    UI -- "HTTPS / REST\nX-User-Role header" --> API
+    HTML --> Proxy
+    Proxy -- "server-to-server\nX-User-Role header" --> API
+    UI -- "server-to-server\nX-User-Role header" --> API
     API --> RBAC
     API --> QE
     API --> Services
@@ -64,19 +74,21 @@ flowchart LR
     Services -- "stats -> narrative" --> LLM
 ```
 
-The frontend and backend are deployed independently and talk over plain HTTPS — there's no shared process or session state between them, which is what lets each half live on the platform best suited to it (see [Deployment](#deployment) for why).
+All three services talk over plain HTTPS — there's no shared process or session state between them, which is what lets each live on the platform best suited to it (see [Deployment](#deployment) for why). Browser JS never calls `ksp-api` directly: both frontends route through a server-side hop (Streamlit's Python process, or `ksp-ui`'s `/api/*` proxy) rather than a same-origin-only browser `fetch()`, which sidesteps two undocumented Catalyst AppSail gateway limits described in [Deployment](#deployment).
 
 ## Tech Stack
 
 | Layer | Technology |
 |---|---|
-| Frontend | [Streamlit](https://streamlit.io) — Python-native reactive UI, Plotly for charts/network graphs, [fpdf2](https://py-pdf.github.io/fpdf2/) (+ bundled Noto Sans Kannada font) for PDF export, browser-native Web Speech API for voice in/out |
+| Frontend (Catalyst) | Server-rendered HTML + vanilla JS/`fetch()` (`catalyst_frontend/`) — no build step, no WebSocket dependency, [Plotly.js](https://plotly.com/javascript/) (CDN) for charts/network graphs, browser-native Web Speech API for voice in/out |
+| Frontend (Streamlit mirror) | [Streamlit](https://streamlit.io) — Python-native reactive UI, Plotly (Python) for charts/network graphs, browser-native Web Speech API for voice in/out |
+| PDF export | [fpdf2](https://py-pdf.github.io/fpdf2/) (+ bundled Noto Sans Kannada font) — server-side, in `app/services/pdf_export.py`, shared by both frontends |
 | Backend | [FastAPI](https://fastapi.tiangolo.com) on Uvicorn — async REST API |
 | LLM | Google **Gemini** (`gemini-flash-latest`) for NL→SQL translation and narrative generation, with Anthropic Claude as a drop-in alternate provider |
 | Data store | SQLite locally / **Zoho Catalyst Data Store** (via ZCQL) in production |
 | Graph analysis | [NetworkX](https://networkx.org) — association graphs, community detection, centrality |
 | Auth | Zoho Catalyst session authentication (`zcatalyst-sdk`) + an application-level role permission system (`app/core/rbac.py`) |
-| Hosting | **Zoho Catalyst AppSail** (backend) + **Streamlit Community Cloud** (frontend) |
+| Hosting | **Zoho Catalyst AppSail** — backend (`ksp-api`) and primary frontend (`ksp-ui`) both, per the challenge's Catalyst-only deployment requirement — plus **Streamlit Community Cloud** as a secondary mirror |
 | Language | Python 3.12 |
 
 ## Data Model
@@ -157,7 +169,7 @@ All endpoints are served under `/api` by the FastAPI backend and require an `X-U
 
 ### Request flow for a question
 
-1. Streamlit posts the question — plus the last few conversation turns, if any — to `/api/query`.
+1. The frontend posts the question — plus the last few conversation turns, if any — to `/api/query` (via `ksp-ui`'s same-origin proxy, or directly from Streamlit's Python process).
 2. The backend sends the question, conversation context, the table schema, and safety rules to Gemini, asking for a single `SELECT` as structured JSON (`app/services/query_engine.py`).
 3. The generated SQL is checked against a denylist (`insert`/`update`/`delete`/`drop`/`alter`/`attach`/`pragma`) before it's allowed to run.
 4. The query executes against the Catalyst Data Store (or local SQLite).
@@ -188,8 +200,13 @@ app/
     forecasting.py               Trend extrapolation + early warning
     decision_support.py          Case summaries, leads, similar cases
 frontend/
-  streamlit_app.py           Streamlit UI (role selector + 9 tabs)
-  fonts/NotoSansKannada.ttf    Bundled font so PDF export renders Kannada
+  streamlit_app.py           Streamlit UI (role selector + 9 tabs) — Streamlit Cloud mirror
+catalyst_frontend/
+  main.py                    FastAPI app: serves the HTML shell + static assets,
+                                and proxies /api/* to ksp-api (see Deployment)
+  startup.py                  AppSail entrypoint
+  static/                      index.html, style.css, app.js — the Catalyst-native UI
+app/assets/fonts/NotoSansKannada.ttf  Bundled font so server-side PDF export renders Kannada
 data/
   seed.py                     Synthetic data generator (all 9 tables)
   export_csv.py                 Dump SQLite tables to CSV
@@ -222,30 +239,43 @@ python -m data.seed
 # 5. Run the backend
 python -m uvicorn app.main:app --reload --port 8000
 
-# 6. In a second terminal, run the frontend
+# 6. In a second terminal, run a frontend — either works against the same local backend:
 streamlit run frontend/streamlit_app.py
+# or, to test the Catalyst-native UI locally:
+# cd catalyst_frontend && python startup.py
 ```
 
-The frontend defaults to `FASTAPI_INTERNAL_URL=http://localhost:8000`, so no extra config is needed for local runs against a local backend.
+Both frontends default to `FASTAPI_INTERNAL_URL=http://localhost:8000`, so no extra config is needed for local runs against a local backend. `catalyst_frontend`'s AppSail entrypoint reads its listen port from `X_ZOHO_CATALYST_LISTEN_PORT` (defaults to `9000` locally).
 
 ## Deployment
 
-The two services are deployed independently:
+The challenge requires the prototype to be deployed on Zoho Catalyst; three services run:
 
 | Service | Platform | Why |
 |---|---|---|
 | Backend (`ksp-api`) | Zoho Catalyst AppSail | Stateless REST API — a natural fit for AppSail's request/response model, and colocated with the Catalyst Data Store it reads from. |
-| Frontend (`ksp-ui`) | Streamlit Community Cloud | Streamlit requires a persistent WebSocket connection for its live UI updates. Catalyst AppSail enforces a hard 30-second timeout on every request with no WebSocket exemption, which breaks Streamlit's connection on a loop. Streamlit's own hosting has no such limit, so the frontend lives there while still calling the Catalyst-hosted API over plain HTTPS. |
+| Frontend (`ksp-ui`) | Zoho Catalyst AppSail | The official, Catalyst-only submission target. Served as static HTML/CSS/JS (`catalyst_frontend/`) rather than Streamlit — see the two gateway limitations below for why. |
+| Frontend mirror | Streamlit Community Cloud | The original Streamlit UI (`frontend/streamlit_app.py`), kept as a secondary, always-available mirror. Unaffected by anything below since Streamlit's own hosting has no WebSocket restriction and it calls the backend server-to-server. |
 
-Backend redeploys (after any code or config change):
+**Two undocumented Catalyst AppSail gateway limitations shaped this architecture**, both confirmed empirically (not documented by Zoho) with real browser tests, not just `curl`:
+
+1. **No WebSocket upgrade support.** Every `wss://` handshake to Catalyst AppSail gets back a plain HTTP `200` instead of `101 Switching Protocols` — 100% of the time, immediately, not just after AppSail's 30-second request timeout. This is fatal to Streamlit's live-update model, which is why `ksp-ui` is a server-rendered HTML/JS app instead: every interaction there is a plain request/response `fetch()` call, so nothing needs a persistent connection.
+2. **CORS preflight (`OPTIONS`) requests are intercepted by the gateway before they reach the app.** The gateway answers preflight itself with a bare `200` and no `Access-Control-Allow-Origin` header, so a browser calling `ksp-api` cross-origin from `ksp-ui` is permanently blocked — regardless of the `CORSMiddleware` configured on the backend (`app/main.py`). The fix: `catalyst_frontend/main.py` proxies `/api/*` server-side (via `httpx`) to `ksp-api`, so the browser only ever calls `ksp-ui` (same origin, no preflight involved) and the cross-service hop happens server-to-server, where CORS — a browser-only concept — doesn't apply.
+
+Redeploy either service after a code or config change:
 
 ```bash
 catalyst deploy --only appsail:ksp-api
+catalyst deploy --only appsail:ksp-ui
 ```
 
-The Streamlit Cloud frontend redeploys automatically on every push to the connected GitHub branch — no manual step beyond `git push`.
+The Streamlit Cloud mirror redeploys automatically on every push to the connected GitHub branch — no manual step beyond `git push`.
 
-`deploy/backend/` and `deploy/frontend/` are pre-vendored, deployment-ready copies of the app plus all dependencies (required because Catalyst AppSail doesn't run `pip install` reliably at build time). They're regenerated locally and intentionally **not** committed to git — see `.gitignore`.
+`deploy/backend/` and `deploy/frontend/` are pre-vendored, deployment-ready copies of the app plus all dependencies (required because Catalyst AppSail doesn't run `pip install` reliably at build time). `deploy/frontend/` vendors only `catalyst_frontend`'s actual dependencies (FastAPI, Uvicorn, httpx) — it's deliberately lightweight since the browser does all chart rendering client-side via Plotly.js, unlike the old Streamlit-on-Catalyst attempt this replaced. Both `deploy/` directories are regenerated locally and intentionally **not** committed to git — see `.gitignore`. When re-vendoring, always target the deployment platform explicitly, since AppSail runs Linux regardless of the machine you build on:
+
+```bash
+pip install --target=deploy/backend --platform manylinux2014_x86_64 --only-binary=:all: --python-version 3.12 <packages>
+```
 
 **New tables required in production:** `financial_accounts`, `financial_transactions`, `victims`, `fir_victim_links`, and `audit_log`, plus three new columns on `suspects` (`socio_economic_band`, `education_level`, `modus_operandi`). Zoho Catalyst Data Store doesn't support creating tables or columns via SDK/CLI — these must be created once through the Catalyst Console before the corresponding features work against production data. Column definitions match `app/core/schema.py` / `data/seed.py`'s `SQLITE_DDL`.
 
@@ -259,13 +289,13 @@ The Streamlit Cloud frontend redeploys automatically on every push to the connec
 | `DATASTORE_BACKEND` | backend | `sqlite` (local) or `catalyst` (production). |
 | `AUTH_ENABLED` | backend | Gates Catalyst session validation on every request. See [Security Notes](#security-notes). |
 | `DEBUG_ERRORS` | backend | Enables stack traces and the `/api/debug/*` diagnostic routes. Must be `false` outside local dev. |
-| `FASTAPI_INTERNAL_URL` | frontend | Base URL the Streamlit app calls for the backend API. |
+| `FASTAPI_INTERNAL_URL` | frontend | Base URL the frontend calls for the backend API — used server-side by both Streamlit and `catalyst_frontend`'s `/api/*` proxy. Never sent to the browser directly. |
 
 ## Security Notes
 
 Documented deliberately, not as an afterthought:
 
-- **`AUTH_ENABLED` is currently `false`** in production. The Streamlit frontend calls the backend as a plain server-to-server HTTP client and does not forward any per-user session, so turning this on today would break the app rather than secure it.
+- **`AUTH_ENABLED` is currently `false`** in production. Both frontends reach the backend as a plain server-to-server HTTP client (Streamlit directly, `ksp-ui` via its `/api/*` proxy) and neither forwards a per-user session, so turning this on today would break the app rather than secure it.
 - **Role selection is self-reported, not authenticated.** The sidebar role picker and `X-User-Role` header are a working simulation of RBAC — the permission *enforcement* is real (403s are real, the financial/audit endpoints are genuinely gated), but nothing currently stops a direct API caller from claiming any role. Wiring this to Catalyst's real user/session system (so role comes from an authenticated identity, not a header the client sets) is the main open item before this handles real case data — tracked in [Roadmap](#roadmap).
 - **`DEBUG_ERRORS` must stay `false`** outside local development — it gates two diagnostic routes (`/api/debug/seed`, `/api/debug/zcql`) that allow unrestricted writes and raw query execution against the data store.
 - **LLM calls use a short, bounded retry.** Catalyst AppSail enforces a hard 30-second request timeout; a naive long retry-backoff on a Gemini rate limit could exceed that and produce the same opaque gateway failure the platform gives for any timed-out request. Every narrative call (query answers, briefings, behavioral summaries, case narratives) instead degrades to a clear fallback message within a few seconds — see `app/core/llm_client.py`'s `ask_safe`.
@@ -278,7 +308,7 @@ Documented deliberately, not as an afterthought:
    - `.env` (`GEMINI_API_KEY=...`) — for local development.
    - `deploy/backend/app-config.json` → `env_variables.GEMINI_API_KEY` — this is what the live backend actually uses.
 3. Redeploy the backend: `catalyst deploy --only appsail:ksp-api`.
-4. Nothing changes on the frontend — Streamlit Cloud never sees the LLM key, it only talks to the backend over HTTPS.
+4. Nothing changes on either frontend — neither Streamlit Cloud nor `ksp-ui` ever sees the LLM key, they only talk to the backend over HTTPS.
 
 To switch providers entirely (e.g. to Anthropic), set `ANTHROPIC_API_KEY` in the same two places and either remove `GEMINI_API_KEY` or set `LLM_PROVIDER=anthropic` explicitly — `app/core/llm_client.py` picks the provider automatically based on which key is present.
 

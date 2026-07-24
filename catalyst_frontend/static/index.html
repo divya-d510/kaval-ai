@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAVAL AI — KSP Crime Intelligence</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚨</text></svg>">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<script>window.API_URL = "__API_URL__";</script>
+
+<div class="app">
+  <aside class="sidebar">
+    <h3>👤 Role</h3>
+    <label class="field-label" for="role-select">Acting as</label>
+    <select id="role-select"></select>
+
+    <h3>🧭 Navigate</h3>
+    <div id="nav-list" class="nav-list"></div>
+  </aside>
+
+  <main class="content">
+    <header class="app-header">
+      <h1>🚨 KAVAL AI</h1>
+      <p class="subtitle">Karnataka AI Voice &amp; Analytics for Law enforcement — Intelligent Conversational AI for the KSP Crime Database, bilingual (English / ಕನ್ನಡ)</p>
+    </header>
+
+    <!-- ================= Ask a Question ================= -->
+    <section id="section-query" class="view">
+      <h2>Ask in English or Kannada</h2>
+
+      <details class="voice-box">
+        <summary>🎤 Voice input (Chrome/Edge)</summary>
+        <div class="voice-controls">
+          <label><input type="radio" name="voice-lang" value="en-IN" checked> English (en-IN)</label>
+          <label><input type="radio" name="voice-lang" value="kn-IN"> Kannada (kn-IN)</label>
+          <button id="voice-record-btn" class="btn btn-secondary" type="button">🎤 Start recording</button>
+          <p id="voice-out"></p>
+        </div>
+      </details>
+
+      <label class="field-label" for="example-select">Try an example</label>
+      <select id="example-select">
+        <option value="">(type your own)</option>
+        <option>How many thefts were reported in Bengaluru Urban?</option>
+        <option>Which police station has the most open cases?</option>
+        <option>ಮೈಸೂರಿನಲ್ಲಿ ಎಷ್ಟು ಸೈಬರ್ ಅಪರಾಧ ಪ್ರಕರಣಗಳು ದಾಖಲಾಗಿವೆ?</option>
+        <option>List suspects with more than 3 prior cases</option>
+      </select>
+
+      <label class="field-label" for="question-input">Your question</label>
+      <input id="question-input" type="text" placeholder="e.g. How many robberies in Whitefield this year? Then try a follow-up like 'and in Mysuru?'">
+      <button id="ask-btn" class="btn btn-primary" type="button">Ask</button>
+
+      <div id="chat-actions" class="chat-actions hidden">
+        <button id="clear-btn" class="btn btn-secondary" type="button">🗑️ Clear conversation</button>
+        <button id="export-pdf-btn" class="btn btn-secondary" type="button">📄 Download conversation as PDF</button>
+      </div>
+
+      <hr>
+      <div id="chat-thread"></div>
+    </section>
+
+    <!-- ================= Dashboard ================= -->
+    <section id="section-analytics" class="view hidden">
+      <h2>Crime Overview</h2>
+      <div class="radio-row" id="dashboard-lang">
+        <label><input type="radio" name="dash-lang" value="en" checked> English</label>
+        <label><input type="radio" name="dash-lang" value="kn"> ಕನ್ನಡ</label>
+      </div>
+      <button id="load-dashboard-btn" class="btn btn-primary" type="button">Load dashboard</button>
+      <div id="dashboard-output"></div>
+    </section>
+
+    <!-- ================= Suspect Network ================= -->
+    <section id="section-graph" class="view hidden">
+      <h2>Criminal Association Network</h2>
+      <p class="caption">Edges = known associations (gang/family) + co-accusation in the same FIR + shared case locations.</p>
+      <label><input type="checkbox" id="include-victims-cb"> Include victims in network (denser graph)</label><br>
+      <button id="build-network-btn" class="btn btn-primary" type="button">Build network</button>
+      <div id="graph-output"></div>
+    </section>
+
+    <!-- ================= Offender Profiling ================= -->
+    <section id="section-profiling" class="view hidden">
+      <h2>Criminology-Based Offender Profiling</h2>
+      <p class="caption">Risk score is a transparent weighted formula — the breakdown shows exactly how each score is built.</p>
+      <button id="load-priority-btn" class="btn btn-primary" type="button">Load priority investigation list</button>
+      <div id="priority-list-output"></div>
+      <hr>
+      <label class="field-label" for="suspect-id-input">Suspect ID for a full profile</label>
+      <input id="suspect-id-input" type="text" placeholder="e.g. SUS-00040">
+      <button id="build-profile-btn" class="btn btn-secondary" type="button">Build profile</button>
+      <div id="profile-output"></div>
+    </section>
+
+    <!-- ================= Sociological Insights ================= -->
+    <section id="section-sociological" class="view hidden">
+      <h2>Sociological Crime Insights</h2>
+      <div class="radio-row" id="socio-lang">
+        <label><input type="radio" name="socio-lang" value="en" checked> English</label>
+        <label><input type="radio" name="socio-lang" value="kn"> ಕನ್ನಡ</label>
+      </div>
+      <button id="load-sociological-btn" class="btn btn-primary" type="button">Load insights</button>
+      <div id="sociological-output"></div>
+    </section>
+
+    <!-- ================= Forecast ================= -->
+    <section id="section-forecast" class="view hidden">
+      <h2>Crime Forecasting &amp; Early Warning</h2>
+      <p class="caption">Heuristic trend extrapolation (linear regression over the last 6 months per district + crime type) — a first-pass indicator, not a calibrated ML forecast.</p>
+      <button id="run-forecast-btn" class="btn btn-primary" type="button">Run forecast</button>
+      <div id="forecast-output"></div>
+    </section>
+
+    <!-- ================= Case Decision Support ================= -->
+    <section id="section-decision_support" class="view hidden">
+      <h2>Investigator Decision Support</h2>
+      <label class="field-label" for="fir-id-input">FIR ID</label>
+      <input id="fir-id-input" type="text" placeholder="e.g. FIR-2025-00023">
+      <button id="build-case-btn" class="btn btn-primary" type="button">Build case summary</button>
+      <div id="case-output"></div>
+    </section>
+
+    <!-- ================= Financial Network ================= -->
+    <section id="section-financial" class="view hidden">
+      <h2>Financial Crime &amp; Transaction Link Analysis</h2>
+      <p class="caption">Restricted to the Supervisor role. Flags are transparent heuristics (high-value transfers, FIR-linked transactions, multi-counterparty "mule" accounts) — not ML.</p>
+      <button id="load-financial-btn" class="btn btn-primary" type="button">Load financial network</button>
+      <div id="financial-output"></div>
+    </section>
+
+    <!-- ================= Audit Log ================= -->
+    <section id="section-audit_log" class="view hidden">
+      <h2>Governance: Audit Log</h2>
+      <p class="caption">Every API access is logged with role, endpoint, and a short summary — restricted to the Supervisor role.</p>
+      <button id="refresh-audit-btn" class="btn btn-primary" type="button">Refresh audit log</button>
+      <div id="audit-output"></div>
+    </section>
+
+  </main>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -2,6 +2,7 @@ import os
 import traceback
 
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.api.routes import router
@@ -12,6 +13,16 @@ app = FastAPI(
     description="Bilingual (English/Kannada) NL querying, suspect-network graphs, "
     "and analytics over Karnataka State Police FIR data.",
     version="0.1.0",
+)
+
+# The Catalyst-native frontend (catalyst_frontend/) calls this API directly from
+# browser JS rather than a server-side process, so it's a cross-origin request —
+# unlike the Streamlit frontend, which calls it server-side and never needed CORS.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type", "X-User-Role"],
 )
 
 app.include_router(router, prefix="/api")
